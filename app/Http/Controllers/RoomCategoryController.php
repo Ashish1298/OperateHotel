@@ -10,33 +10,19 @@ use Brian2694\Toastr\Toastr;
 
 class RoomCategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //function for Room category index
     public function index()
     {
         $roomCategory = RoomCategory::all();
         return view('admin.Dashboard.roomCategory.index', compact('roomCategory'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //function for Room category creation
     public function createRoomCategory()
     {
         return view('admin.Dashboard.roomCategory.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function storeRoomCategory(Request $request)
 
     {
@@ -72,7 +58,7 @@ class RoomCategoryController extends Controller
     }
 
 
-
+    //function for Room category edit
     public function showRoomCategory($id)
     {
         $roomCategory = RoomCategory::find($id);
@@ -80,7 +66,7 @@ class RoomCategoryController extends Controller
         return view('admin.Dashboard.roomCategory.edit',compact('roomCategory'));
     }
 
-
+    //function for Room category updating room category
     public function updateRoomCategory(Request $request, $id)
     {
         try {
@@ -104,19 +90,25 @@ class RoomCategoryController extends Controller
             $roomCategory->description = $request->description;
             $roomCategory->update();
 
-            toastr()->success('Room Category edited successfully!');
+            toastr()->success('Room Category updated successfully!');
             return redirect()->route('roomCategory.index');
 
         } catch (Exception $exception) {
-            toastr()->error('Error While editing Room Category!');
+            toastr()->error('Error While updating Room Category!');
             return redirect()->back()->with('error', 'This is the error' . $exception);
         }
     }
 
+    //function for Room category deletion
     public function deleteRoomCategory($id)
     {
         $data = RoomCategory::find($id);
+        $image_dest = 'admin/images/roomCategory/' . $data->image;
+        if (File::exists($image_dest)) {
+            File::delete($image_dest);
+        }
         $data->delete();
+        toastr()->success('Room Category Deleted Successfully!!!');
         return redirect()->back();
     }
 }

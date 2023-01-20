@@ -321,17 +321,40 @@
                         </li>
 
                         <li class="side-nav-item">
-                            <a href="widgets.html" class="side-nav-link">
-                                <i class="uil-comments-alt"></i>
-                                <span> Chat </span>
+                            <a href="{{route('room.index')}}" class="side-nav-link">
+                                <i class="uil-calender"></i>
+                                <span> Room </span>
                             </a>
                         </li>
+
+
+                        <li class="side-nav-item">
+                            <a href="{{route('food.index')}}" class="side-nav-link">
+                                <i class="uil-calender"></i>
+                                <span> Food </span>
+                            </a>
+                        </li>
+
+                        <li class="side-nav-item">
+                            <a href="{{route('serviceCategory.index')}}" class="side-nav-link">
+                                <i class="uil-calender"></i>
+                                <span> Service Category</span>
+                            </a>
+                        </li>
+
+                        <li class="side-nav-item">
+                            <a href="{{route('service.index')}}" class="side-nav-link">
+                                <i class="uil-calender"></i>
+                                <span> Service </span>
+                            </a>
+                        </li>
+
 
                         <li class="side-nav-item">
                             <a data-bs-toggle="collapse" href="#sidebarEcommerce" aria-expanded="false"
                                 aria-controls="sidebarEcommerce" class="side-nav-link">
                                 <i class="uil-store"></i>
-                                <span> Ecommerce </span>
+                                <span> Food </span>
                                 <span class="menu-arrow"></span>
                             </a>
                             <div class="collapse" id="sidebarEcommerce">

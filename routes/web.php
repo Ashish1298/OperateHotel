@@ -3,17 +3,12 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomCategoryController;
+use App\Http\Controllers\RoomController;
+use App\Http\Controllers\FoodController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\ServiceCategoryController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
 
 Route::get('/', function () {
     return view('auth.login');
@@ -27,7 +22,7 @@ Route::get('/admin/home', [App\Http\Controllers\HomeController::class, 'adminHom
 
 
 // //route for room category index
-// Route::get("/rooms", [RoomCategoryController::class, 'index'])->name('roomCategory.index');
+
 
 Route::group(['middleware' => ['auth', 'is_admin']], function () {
     // admin room category route
@@ -40,7 +35,63 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
     Route::get("/roomCategoryedit/{id}", [RoomCategoryController::class, 'showRoomCategory'])->name('roomCategory.show');
     // Room Category delete route
     Route::get("/deleteCategory/{id}", [RoomCategoryController::class, 'deleteRoomCategory'])->name('roomCategory.delete');
-
+    //Rout for updating room categories
     Route::post("/updateCategory/{id}", [RoomCategoryController::class, 'updateRoomCategory'])->name('roomCategory.edit');
+
+
+    // admin room route
+    Route::get("/room", [RoomController::class, 'index'])->name('room.index');
+    // Admin create room route
+    Route::get("/createrRoom", [RoomController::class, 'createRoom'])->name('room.create');
+    // Room  create room route
+    Route::post("/storeRoom", [RoomController::class, 'storeRoom'])->name('room.store');
+    // Room  edit route
+    Route::get("/roomEdit/{id}", [RoomController::class, 'showRoom'])->name('room.show');
+    // Room  delete route
+    Route::get("/deleteRoom/{id}", [RoomController::class, 'deleteRoom'])->name('room.delete');
+    //Rout for updating room 
+    Route::post("/updateRoom/{id}", [RoomController::class, 'updateRoom'])->name('room.edit');
+
+
+
+    // admin Food route
+    Route::get("/food", [FoodController::class, 'index'])->name('food.index');
+    // Admin create Food route
+    Route::get("/createrFood", [FoodController::class, 'createFood'])->name('food.create');
+    // create Food route
+    Route::post("/storeFood", [FoodController::class, 'storeFood'])->name('food.store');
+    // Food  edit route
+    Route::get("/foodEdit/{id}", [FoodController::class, 'showFood'])->name('food.show');
+    // Food  delete route
+    Route::get("/deleteFood/{id}", [FoodController::class, 'deleteFood'])->name('food.delete');
+    //Rout for updating Food 
+    Route::post("/updateFood/{id}", [FoodController::class, 'updateFood'])->name('food.edit');
+
+    // admin room category route
+    Route::get("/serviceCategory", [ServiceCategoryController::class, 'index'])->name('serviceCategory.index');
+    // Admin create room route
+    Route::get("/createrServiceCategory", [ServiceCategoryController::class, 'createServiceCategory'])->name('serviceCategory.create');
+    // Room Category create room route
+    Route::post("/storeServiceCategory", [ServiceCategoryController::class, 'storeServiceCategory'])->name('serviceCategory.store');
+    // Room Category edit route
+    Route::get("/serviceCategoryEdit/{id}", [ServiceCategoryController::class, 'showServiceCategory'])->name('serviceCategory.show');
+    // Room Category delete route
+    Route::get("/deleteServiceCategory/{id}", [ServiceCategoryController::class, 'deleteServiceCategory'])->name('serviceCategory.delete');
+    //Rout for updating room categories
+    Route::post("/updateServiceCategory/{id}", [ServiceCategoryController::class, 'updateServiceCategory'])->name('serviceCategory.edit');
+
+
+    // Service route
+    Route::get("/service", [ServiceController::class, 'index'])->name('service.index');
+    // Admin create Service route
+    Route::get("/createrService", [ServiceController::class, 'createService'])->name('service.create');
+    // create Service route
+    Route::post("/storeService", [ServiceController::class, 'storeService'])->name('service.store');
+    // Service  edit route
+    Route::get("/ServiceEdit/{id}", [ServiceController::class, 'showService'])->name('service.show');
+    // Service  delete route
+    Route::get("/deleteService/{id}", [ServiceController::class, 'deleteService'])->name('service.delete');
+    //Rout for updating Service 
+    Route::post("/updateService/{id}", [ServiceController::class, 'updateService'])->name('service.edit');
 
 });

@@ -5,7 +5,7 @@
         <div class="card">
             <div class="card-body ">
                 <div class="card-body d-flex align-items-center">
-                <h4 class="header-title">Create Room Category</h4>
+                <h4 class="header-title">Create Service Category</h4>
                 </div>
 
                 <ul class="nav nav-tabs nav-bordered mb-3">
@@ -22,19 +22,15 @@
                                 <div class="card-title d-flex align-items-center">
                                     <div><i class="bx bxs-plus-square me-1 font-22 text-primary"></i>
                                     </div>
-                                    <h5 class="mb-0 text-primary">Create Room Category</h5>
+                                    <h5 class="mb-0 text-primary">Create Service Category</h5>
                                 </div>
                                 <hr>
                                 {{-- action="{{ route('brand.store') }}" --}}
-                                <form  action="{{ route('roomCategory.store') }}" method="POST" enctype="multipart/form-data" class="row g-3">
+                                <form  action="{{ route('serviceCategory.store') }}" method="POST" enctype="multipart/form-data" class="row g-3">
                                     @csrf
                                     <div class="col-md-12">
-                                        <label for="inputName" class="form-label">Name</label>
-                                        <input type="text" name="category_name" class="form-control" id="inputName" required>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <label for="inputImage" class="form-label">Image</label>
-                                        <input type="file" class="form-control" id="inputGroupFile04" name="image" accept=".jpg') }}, .png') }}, image/jpeg, image/png" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                                        <label for="inputName" class="form-label">Service Name</label>
+                                        <input type="text" name="service_name" class="form-control" id="inputName" required>
                                     </div>
                                     <div class="row-12">
                                         <label for="inputAddress" class="form-label ">Description</label>
