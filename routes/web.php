@@ -7,6 +7,8 @@ use App\Http\Controllers\RoomController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ServiceCategoryController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\MapController;
 
 
 
@@ -17,13 +19,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Route::get('/admin/home', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 
 
+
+
+
+
 // //route for room category index
-
-
 Route::group(['middleware' => ['auth', 'is_admin']], function () {
     // admin room category route
     Route::get("/rooms", [RoomCategoryController::class, 'index'])->name('roomCategory.index');
@@ -93,5 +96,35 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
     Route::get("/deleteService/{id}", [ServiceController::class, 'deleteService'])->name('service.delete');
     //Rout for updating Service 
     Route::post("/updateService/{id}", [ServiceController::class, 'updateService'])->name('service.edit');
+
+
+
+    // Routes For admin profile
+
+    Route::get("/profile", [ProfileController::class, 'index'])->name('profile.index');
+
+    Route::get("/createProfile", [ProfileController::class, 'createProfile'])->name('profile.create');
+    // create Profile route
+    Route::post("/storeProfile", [ProfileController::class, 'storeProfile'])->name('profile.store');
+    // Profile  edit route
+    Route::get("/ProfileEdit/{id}", [ProfileController::class, 'showProfile'])->name('profile.show');
+    // Profile  delete route
+    Route::get("/deleteProfile/{id}", [ProfileController::class, 'deleteProfile'])->name('profile.delete');
+    //Rout for updating Service 
+    
+
+    // Map route
+    Route::get("/map", [MapController::class, 'index'])->name('map.index');
+    // Map creating route
+    Route::get("/createrMap", [MapController::class, 'createMap'])->name('map.create');
+    // create map route
+    Route::post("/storeMap", [MapController::class, 'storeMap'])->name('map.store');
+    // Map  edit route
+    Route::get("/MapEdit/{id}", [MapController::class, 'showMap'])->name('map.show');
+    // Map deleting route
+    Route::get("/deleteMap/{id}", [MapController::class, 'deleteMap'])->name('map.delete');
+    //Rout for updating Map 
+    Route::post("/updateMap/{id}", [MapController::class, 'updateMap'])->name('map.edit');
+
 
 });

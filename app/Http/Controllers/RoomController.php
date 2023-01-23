@@ -56,7 +56,7 @@ class RoomController extends Controller
             $room->save();
 
             toastr()->success('Room created successfully!');
-            return redirect()->route('room.index');
+            return redirect()->route('profile.index');
 
         } catch (Exception $exception) {
 
