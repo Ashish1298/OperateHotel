@@ -34,15 +34,19 @@
                                     </div>
                                     <div class="row-12">
                                         <label for="inputAddress" class="form-label ">Phone Number</label>
-                                        <input type="number" name="phone_number" class="form-control" id="price" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
+                                        <input type="number" value="{{ Auth::user()->phone_number }}" name="phone_number" class="form-control" id="price" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
+                                    </div>
+                                    <div class="row-12">
+                                        <label for="inputAddress" class="form-label ">Name</label>
+                                        <input type="text" value="{{ Auth::user()->name }}" name="name" class="form-control" id="name" required>
                                     </div>
                                     <div class="row-12">
                                         <label for="inputAddress" class="form-label ">Date Of Birth</label>
-                                        <input type="date" name="dateOfBirth" class="form-control" id="dateOfBirth" required>
+                                        <input type="date" name="dateOfBirth" value="{{ Auth::user()->dateOfBirth }}" class="form-control" id="dateOfBirth" required>
                                     </div>
                                     <div class="row-12">
                                         <label for="inputAddress" class="form-label ">Bio</label>
-                                        <textarea class="form-control" id="inputAddress" name="bio" placeholder="Description..." rows="3"></textarea>
+                                        <textarea class="form-control" value="{{ Auth::user()->bio }}" id="inputAddress" name="bio" placeholder="Description..." rows="3"></textarea>
                                     </div>
                                     <div class="d-flex justify-content-center">
                                         <button type="submit" class="btn btn-primary px-5">Edit</button>

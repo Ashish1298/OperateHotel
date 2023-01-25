@@ -2,416 +2,575 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Admin</title>
-    <!-- core:css -->
-    <link rel="stylesheet" href="{{ asset('admin/vendors/core/core.css') }}">
-    <!-- endinject -->
-    <!-- plugin css for this page -->
-    <link rel="stylesheet" href="{{ asset('admin/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/vendors/select2/select2.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/vendors/jquery-tags-input/jquery.tagsinput.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/vendors/dropzone/dropzone.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/vendors/dropify/dist/dropify.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/vendors/bootstrap-colorpicker/bootstrap-colorpicker.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/vendors/font-awesome/css/font-awesome.min.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('admin/vendors/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css') }}">
-    <!-- end plugin css for this page -->
-    <!-- inject:css -->
-    <link rel="stylesheet" href="{{ asset('admin/fonts/feather-font/css/iconfont.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/vendors/flag-icon-css/css/flag-icon.min.css') }}">
-    <!-- endinject -->
-    <!-- Layout styles -->
-    <link rel="stylesheet" href="{{ asset('admin/css/demo_1/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/css/demo_1/style2.css') }}">
-    <!-- End layout styles -->
-    <link rel="shortcut icon" href="{{ asset('admin/images/favicon.png') }}" />
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>Operate Hotel</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="{{ asset('user/css/bootstrap.min.css') }}">
+    <!-- style css -->
+    <link rel="stylesheet" href="{{ asset('user/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('user/css/profile-style.css') }}">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="{{ asset('user/css/responsive.css') }}">
+    <!-- fevicon -->
+    <link rel="icon" href="{{ asset('user/images/fevicon.png') }}" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+        media="screen">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+
+    <style>
+
+        .dropbtn {
+            background-color: #ffffff;
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            border-bottom: 5px solid rgb(254, 0, 10);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
+
+        @media only screen and (min-width: 600px) {
+
+            .dropbtn {
+                background-color: #ff0000;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+        }
+
+        /* .hidden {
+            display: none;
+        } */
+    </style>
 </head>
+<!-- body -->
 
-<body>
-    <div class="main-wrapper">
-
-        <!-- partial:partials/_sidebar.html -->
-        <nav class="sidebar">
-            <div class="sidebar-header">
-                <a href="#" class="sidebar-brand">
-                    apps-social-feed
-                </a>
-                <div class="sidebar-toggler not-active">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-            <div class="sidebar-body">
-                <ul class="nav">
-                    <li class="nav-item nav-category">Main</li>
-                    <li class="nav-item">
-                        <a href="{{ route('home') }}" class="nav-link">
-                            <i class="link-icon" data-feather="box"></i>
-                            <span class="link-title">Dashboard</span>
-                        </a>
-                    </li>
-                    <li class="nav-item nav-category">web apps</li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#emails" role="button" aria-expanded="false"
-                            aria-controls="emails">
-                            <i class="link-icon" data-feather="mail"></i>
-                            <span class="link-title">Email</span>
-                            <i class="link-arrow" data-feather="chevron-down"></i>
-                        </a>
-                        <div class="collapse" id="emails">
-                            <ul class="nav sub-menu">
-                                <li class="nav-item">
-                                    <a href="pages/email/inbox.html" class="nav-link">Inbox</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/email/read.html" class="nav-link">Read</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/email/compose.html" class="nav-link">Compose</a>
-                                </li>
-                            </ul>
+<body class="main-layout">
+    <!-- loader  -->
+    <div class="loader_bg">
+        <div class="loader"><img src="{{ asset('user/images/loading.gif') }}" alt="#" /></div>
+    </div>
+    <!-- end loader -->
+    <!-- header -->
+    <header>
+        <!-- header inner -->
+        <div class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-3 col logo_section">
+                        <div class="full">
+                            <div class="center-desk">
+                                <div class="logo">
+                                    <a><img src="{{ asset('admin/images/logo.png') }}"alt="Company Logo"  style="height:70px; width:75px; left:0; margin-top:-5px " /></a>
+                                </div>
+                            </div>
                         </div>
-                    </li>
-                    <li class="nav-item">
-                        <a href="pages/apps/chat.html" class="nav-link">
-                            <i class="link-icon" data-feather="message-square"></i>
-                            <span class="link-title">Chat</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-
-
-        <div class="page-wrapper">
-
-            <!-- partial:partials/_navbar.html -->
-            <nav class="navbar">
-                <a href="#" class="sidebar-toggler">
-                    <i data-feather="menu"></i>
-                </a>
-                <div class="navbar-content">
-                    <form class="search-form">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                    <i data-feather="search"></i>
-                                </div>
-                            </div>
-                            <input type="text" class="form-control" id="navbarForm" placeholder="Search here...">
-                        </div>
-                    </form>
-                    <ul class="navbar-nav">
-                        <li class="nav-item dropdown nav-apps">
-                            <a class="nav-link dropdown-toggle" href="#" id="appsDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i data-feather="grid"></i>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="appsDropdown">
-                                <div class="dropdown-header d-flex align-items-center justify-content-between">
-                                    <p class="mb-0 font-weight-medium">Web Apps</p>
-                                    <a href="javascript:;" class="text-muted">Edit</a>
-                                </div>
-                                <div class="dropdown-body">
-                                    <div class="d-flex align-items-center apps">
-                                        <a href="pages/apps/chat.html"><i data-feather="message-square"
-                                                class="icon-lg"></i>
-                                            <p>Chat</p>
+                    </div>
+                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                        <nav class="navigation navbar navbar-expand-md navbar-dark ">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarsExample04">
+                                <ul class="navbar-nav mr-auto">
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="index.html">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="about.html">About</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="room.html">Our room</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="gallery.html">Gallery</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="blog.html">Blog</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="contact.html">Contact Us</a>
+                                    </li>
+                                    <li class="dropdown profile-menu-head ">
+                                        <a class="nav-link dropbtn" href="" style="border-bottom: none;">
+                                            <img src="{{ asset('admin/images/user/'.Auth::user()->image) }}" alt="" style="height:45px; width:50px; left:0; margin-top:-10px " class="rounded-circle">
                                         </a>
-                                        <a href="pages/apps/calendar.html"><i data-feather="calendar"
-                                                class="icon-lg"></i>
-                                            <p>Calendar</p>
-                                        </a>
-                                        <a href="pages/email/inbox.html"><i data-feather="mail" class="icon-lg"></i>
-                                            <p>Email</p>
-                                        </a>
-                                        <a href="pages/general/profile.html"><i data-feather="instagram"
-                                                class="icon-lg"></i>
-                                            <p>Profile</p>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="dropdown-footer d-flex align-items-center justify-content-center">
-                                    <a href="javascript:;">View all</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown nav-messages">
-                            <a class="nav-link dropdown-toggle" href="#" id="messageDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i data-feather="mail"></i>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="messageDropdown">
-                                <div class="dropdown-header d-flex align-items-center justify-content-between">
-                                    <p class="mb-0 font-weight-medium">9 New Messages</p>
-                                    <a href="javascript:;" class="text-muted">Clear all</a>
-                                </div>
-                                <div class="dropdown-body">
-                                    <a href="javascript:;" class="dropdown-item">
-                                        <div class="figure">
-                                            <img src="https://via.placeholder.com/30x30" alt="userr">
-                                        </div>
-                                        <div class="content">
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <p>Leonardo Payne</p>
-                                                <p class="sub-text text-muted">2 min ago</p>
-                                            </div>
-                                            <p class="sub-text text-muted">Project status</p>
-                                        </div>
-                                    </a>
-                                    <a href="javascript:;" class="dropdown-item">
-                                        <div class="figure">
-                                            <img src="https://via.placeholder.com/30x30" alt="userr">
-                                        </div>
-                                        <div class="content">
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <p>Carl Henson</p>
-                                                <p class="sub-text text-muted">30 min ago</p>
-                                            </div>
-                                            <p class="sub-text text-muted">Client meeting</p>
-                                        </div>
-                                    </a>
-                                    <a href="javascript:;" class="dropdown-item">
-                                        <div class="figure">
-                                            <img src="https://via.placeholder.com/30x30" alt="userr">
-                                        </div>
-                                        <div class="content">
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <p>Jensen Combs</p>
-                                                <p class="sub-text text-muted">1 hrs ago</p>
-                                            </div>
-                                            <p class="sub-text text-muted">Project updates</p>
-                                        </div>
-                                    </a>
-                                    <a href="javascript:;" class="dropdown-item">
-                                        <div class="figure">
-                                            <img src="https://via.placeholder.com/30x30" alt="userr">
-                                        </div>
-                                        <div class="content">
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <p>Amiah Burton</p>
-                                                <p class="sub-text text-muted">2 hrs ago</p>
-                                            </div>
-                                            <p class="sub-text text-muted">Project deadline</p>
-                                        </div>
-                                    </a>
-                                    <a href="javascript:;" class="dropdown-item">
-                                        <div class="figure">
-                                            <img src="https://via.placeholder.com/30x30" alt="userr">
-                                        </div>
-                                        <div class="content">
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <p>Yaretzi Mayo</p>
-                                                <p class="sub-text text-muted">5 hr ago</p>
-                                            </div>
-                                            <p class="sub-text text-muted">New record</p>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="dropdown-footer d-flex align-items-center justify-content-center">
-                                    <a href="javascript:;">View all</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown nav-notifications">
-                            <a class="nav-link dropdown-toggle" href="#" id="notificationDropdown"
-                                role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i data-feather="bell"></i>
-                                <div class="indicator">
-                                    <div class="circle"></div>
-                                </div>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="notificationDropdown">
-                                <div class="dropdown-header d-flex align-items-center justify-content-between">
-                                    <p class="mb-0 font-weight-medium">6 New Notifications</p>
-                                    <a href="javascript:;" class="text-muted">Clear all</a>
-                                </div>
-                                <div class="dropdown-body">
-                                    <a href="javascript:;" class="dropdown-item">
-                                        <div class="icon">
-                                            <i data-feather="user-plus"></i>
-                                        </div>
-                                        <div class="content">
-                                            <p>New customer registered</p>
-                                            <p class="sub-text text-muted">2 sec ago</p>
-                                        </div>
-                                    </a>
-                                    <a href="javascript:;" class="dropdown-item">
-                                        <div class="icon">
-                                            <i data-feather="gift"></i>
-                                        </div>
-                                        <div class="content">
-                                            <p>New Order Recieved</p>
-                                            <p class="sub-text text-muted">30 min ago</p>
-                                        </div>
-                                    </a>
-                                    <a href="javascript:;" class="dropdown-item">
-                                        <div class="icon">
-                                            <i data-feather="alert-circle"></i>
-                                        </div>
-                                        <div class="content">
-                                            <p>Server Limit Reached!</p>
-                                            <p class="sub-text text-muted">1 hrs ago</p>
-                                        </div>
-                                    </a>
-                                    <a href="javascript:;" class="dropdown-item">
-                                        <div class="icon">
-                                            <i data-feather="layers"></i>
-                                        </div>
-                                        <div class="content">
-                                            <p>Apps are ready for update</p>
-                                            <p class="sub-text text-muted">5 hrs ago</p>
-                                        </div>
-                                    </a>
-                                    <a href="javascript:;" class="dropdown-item">
-                                        <div class="icon">
-                                            <i data-feather="download"></i>
-                                        </div>
-                                        <div class="content">
-                                            <p>Download completed</p>
-                                            <p class="sub-text text-muted">6 hrs ago</p>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="dropdown-footer d-flex align-items-center justify-content-center">
-                                    <a href="javascript:;">View all</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown nav-profile">
-                            <a class="nav-link dropdown-toggle " href="#" id="profileDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <div>
-                                    @if (Auth::user()->profile_image == null)
-                                        <img src="{{ asset('admin/images/profile/avatar-0.jpg') }}" alt="Admin"
-                                            class="profile-object-fit-cover">
-                                    @else
-                                        <img src="{{ asset('admin/images/profile/' . Auth::user()->profile_image) }}"
-                                            class="profile-object-fit-cover" alt="Admin">
-                                    @endif
-                                </div>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="profileDropdown">
-                                <div class="dropdown-header d-flex flex-column align-items-center">
-                                    <div class="figure mb-3">
-                                        @if (Auth::user()->profile_image == null)
-                                            <img src="{{ asset('admin/images/profile/avatar-0.jpg') }}"
-                                                alt="Admin"
-                                                class="rounded-circle p-1 profile-small profile-dropdown-object-fit-cover">
-                                        @else
-                                            <img src="{{ asset('admin/images/profile/' . Auth::user()->profile_image) }}"
-                                                alt="Admin"
-                                                class="rounded-circle p-1 profile-small profile-dropdown-object-fit-cover">
-                                        @endif
-                                    </div>
-                                    <div class="info text-center">
-                                        <p class="name font-weight-bold mb-0">{{ Auth::user()->name }}</p>
-                                        <p class="email text-muted mb-3">{{ Auth::user()->email }}</p>
-                                    </div>
-                                </div>
-                                <div class="dropdown-body">
-                                    <ul class="profile-nav p-0 pt-3">
-                                        <li class="nav-item">
-                                            <a href="" class="nav-link">
-                                                <i data-feather="user"></i>
-                                                <span>Profile</span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="" class="nav-link">
-                                                <i data-feather="edit"></i>
-                                                <span>Edit Profile</span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="" class="nav-link">
-                                                <i data-feather="key"></i>
-                                                <span>Change Password</span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            
-                                            <a class="nav-link" href="{{ route('logout') }}"
-                                                onclick="event.preventDefault();
-                                                          document.getElementById('logout-form').submit();">
-                                                <i data-feather="log-out"></i>
-                                                <span>Logout</span>
-                                                
-                                            </a>
-
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                                class="d-none">
+                                        <div class="dropdown-content" style="left:0;">
+                                            <a href="{{route('profile.index')}}">My Profile</a>
+                                            <a href="#">Link 2</a>
+                                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">logout</a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                                 @csrf
                                             </form>
-                                        </li>
-                                    </ul>
-                                </div>
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
-                        </li>
-                    </ul>
+                        </nav>
+                    </div>
                 </div>
-            </nav>
-            <!-- partial -->
-
-            <div class="page-content">
-                @yield('content')
             </div>
+        </div>
 
+
+    </header>
+    <!-- end header inner -->
+    <!-- end header -->
+    <!-- banner -->
+    <section class="banner_main">
+        <div id="myCarousel" class="carousel slide banner" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="first-slide" src="{{ asset('user/images/banner1.jpg') }}" alt="First slide">
+                    <div class="container">
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="second-slide" src="{{ asset('user/images/banner2.jpg') }}" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="third-slide" src="{{ asset('user/images/banner3.jpg') }}" alt="Third slide">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <div class="booking_ocline">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="book_room">
+                            <h1>Book a Room Online</h1>
+                            <form class="book_now">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <span>Arrival</span>
+                                        <img class="date_cua" src="{{ asset('user/images/date.png') }}">
+                                        <input class="online_book" placeholder="dd/mm/yyyy" type="date"
+                                            name="dd/mm/yyyy">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <span>Departure</span>
+                                        <img class="date_cua" src="{{ asset('user/images/date.png') }}">
+                                        <input class="online_book" placeholder="dd/mm/yyyy" type="date"
+                                            name="dd/mm/yyyy">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <button class="book_btn">Book Now</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end banner -->
+    <!-- about -->
+    <div class="about">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="titlepage">
+                        <h2>About Us</h2>
+                        <p>The passage experienced a surge in popularity during the 1960s when Letraset used it on their
+                            dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with
+                            their software. Today it's seen all around the web; on templates, websites, and stock
+                            designs. Use our generator to get your own, or read on for the authoritative history of
+                            lorem ipsum. </p>
+                        <a class="read_more" href="Javascript:void(0)"> Read More</a>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="about_img">
+                        <figure><img src="images/about.png" alt="#" /></figure>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <!-- end about -->
+    <!-- our_room -->
+    <div class="our_room">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="titlepage">
+                        <h2>Our Room</h2>
+                        <p>Lorem Ipsum available, but the majority have suffered </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <div id="serv_hover" class="room">
+                        <div class="room_img">
+                            <figure><img src="{{ asset('user/images/room1.jpg') }}" alt="#" /></figure>
+                        </div>
+                        <div class="bed_room">
+                            <h3>Bed Room</h3>
+                            <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div id="serv_hover" class="room">
+                        <div class="room_img">
+                            <figure><img src="{{ asset('user/images/room2.jpg') }}" alt="#" /></figure>
+                        </div>
+                        <div class="bed_room">
+                            <h3>Bed Room</h3>
+                            <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div id="serv_hover" class="room">
+                        <div class="room_img">
+                            <figure><img src="{{ asset('user/images/room3.jpg') }}" alt="#" /></figure>
+                        </div>
+                        <div class="bed_room">
+                            <h3>Bed Room</h3>
+                            <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div id="serv_hover" class="room">
+                        <div class="room_img">
+                            <figure><img src="{{ asset('user/images/room4.jpg') }}" alt="#" /></figure>
+                        </div>
+                        <div class="bed_room">
+                            <h3>Bed Room</h3>
+                            <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div id="serv_hover" class="room">
+                        <div class="room_img">
+                            <figure><img src="{{ asset('user/images/room5.jpg') }}" alt="#" /></figure>
+                        </div>
+                        <div class="bed_room">
+                            <h3>Bed Room</h3>
+                            <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div id="serv_hover" class="room">
+                        <div class="room_img">
+                            <figure><img src="{{ asset('user/images/room6.jpg') }}" alt="#" /></figure>
+                        </div>
+                        <div class="bed_room">
+                            <h3>Bed Room</h3>
+                            <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end our_room -->
+    <!-- gallery -->
+    <div class="gallery">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="titlepage">
+                        <h2>gallery</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="gallery_img">
+                        <figure><img src="{{ asset('user/images/gallery1.jpg') }}" alt="#" /></figure>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="gallery_img">
+                        <figure><img src="{{ asset('user/images/gallery2.jpg') }}" alt="#" /></figure>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="gallery_img">
+                        <figure><img src="{{ asset('user/images/gallery3.jpg') }}" alt="#" /></figure>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="gallery_img">
+                        <figure><img src="{{ asset('user/images/gallery4.jpg') }}" alt="#" /></figure>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="gallery_img">
+                        <figure><img src="{{ asset('user/images/gallery5.jpg') }}" alt="#" /></figure>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="gallery_img">
+                        <figure><img src="{{ asset('user/images/gallery6.jpg') }}" alt="#" /></figure>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="gallery_img">
+                        <figure><img src="{{ asset('user/images/gallery7.jpg') }}" alt="#" /></figure>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="gallery_img">
+                        <figure><img src="{{ asset('user/images/gallery8.jpg') }}" alt="#" /></figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end gallery -->
+    <!-- blog -->
+    <div class="blog">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="titlepage">
+                        <h2>Blog</h2>
+                        <p>Lorem Ipsum available, but the majority have suffered </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="blog_box">
+                        <div class="blog_img">
+                            <figure><img src="{{ asset('user/images/blog1.jpg') }}" alt="#" /></figure>
+                        </div>
+                        <div class="blog_room">
+                            <h3>Bed Room</h3>
+                            <span>The standard chunk </span>
+                            <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
+                                anything embarrassing hidden in the middle of text. All the Lorem Ipsum generatorsIf you
+                                are </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="blog_box">
+                        <div class="blog_img">
+                            <figure><img src="{{ asset('user/images/blog2.jpg') }}" alt="#" /></figure>
+                        </div>
+                        <div class="blog_room">
+                            <h3>Bed Room</h3>
+                            <span>The standard chunk </span>
+                            <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
+                                anything embarrassing hidden in the middle of text. All the Lorem Ipsum generatorsIf you
+                                are </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="blog_box">
+                        <div class="blog_img">
+                            <figure><img src="{{ asset('user/images/blog3.jpg') }}" alt="#" /></figure>
+                        </div>
+                        <div class="blog_room">
+                            <h3>Bed Room</h3>
+                            <span>The standard chunk </span>
+                            <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
+                                anything embarrassing hidden in the middle of text. All the Lorem Ipsum generatorsIf you
+                                are </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end blog -->
+    <!--  contact -->
+    <div class="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="titlepage">
+                        <h2>Contact Us</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <form id="request" class="main_form">
+                        <div class="row">
+                            <div class="col-md-12 ">
+                                <input class="contactus" placeholder="Name" type="type" name="Name">
+                            </div>
+                            <div class="col-md-12">
+                                <input class="contactus" placeholder="Email" type="type" name="Email">
+                            </div>
+                            <div class="col-md-12">
+                                <input class="contactus" placeholder="Phone Number" type="type"
+                                    name="Phone Number">
+                            </div>
+                            <div class="col-md-12">
+                                <textarea class="textarea" placeholder="Message" type="type" Message="Name">Message</textarea>
+                            </div>
+                            <div class="col-md-12">
+                                <button class="send_btn">Send</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <div class="map_main">
+                        <div class="map-responsive">
+                            <iframe
+                                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&amp;q=Eiffel+Tower+Paris+France"
+                                width="600" height="400" frameborder="0" style="border:0; width: 100%;"
+                                allowfullscreen=""></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end contact -->
 
-    <!-- core:js -->
-    <script src="{{ asset('admin/vendors/core/core.js') }}"></script>
-    <!-- endinject -->
-    <!-- plugin js for this page -->
-    <script src="{{ asset('admin/vendors/chartjs/Chart.min.js') }}"></script>
-    <script src="{{ asset('admin/vendors/jquery.flot/jquery.flot.js') }}"></script>
-    <script src="{{ asset('admin/vendors/jquery.flot/jquery.flot.resize.js') }}"></script>
-    <script src="{{ asset('admin/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
-    <script src="{{ asset('admin/vendors/apexcharts/apexcharts.min.js') }}"></script>
-    <script src="{{ asset('admin/vendors/progressbar.js/progressbar.min.js') }}"></script>
-    <script src="{{ asset('admin/vendors/jquery-validation/jquery.validate.min.js') }}"></script>
-    <script src="{{ asset('admin/vendors/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>
-    <script src="{{ asset('admin/vendors/inputmask/jquery.inputmask.min.js') }}"></script>
-    <script src="{{ asset('admin/vendors/select2/select2.min.js') }}"></script>
-    <script src="{{ asset('admin/vendors/typeahead.js/typeahead.bundle.min.js') }}"></script>
-    <script src="{{ asset('admin/vendors/jquery-tags-input/jquery.tagsinput.min.js') }}"></script>
-    <script src="{{ asset('admin/vendors/dropzone/dropzone.min.js') }}"></script>
-    <script src="{{ asset('admin/vendors/dropify/dist/dropify.min.js') }}"></script>
-    <script src="{{ asset('admin/vendors/bootstrap-colorpicker/bootstrap-colorpicker.min.js') }}"></script>
-    <script src="{{ asset('admin/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
-    <script src="{{ asset('admin/vendors/moment/moment.min.js') }}"></script>
-    <script src="{{ asset('admin/vendors/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.js') }}"></script>
-    <!-- end plugin js for this page -->
+    <div class="content-page">
+        @yield('content')
+    </div>
+    <!--  footer -->
+    <footer>
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class=" col-md-4">
+                        <h3>Contact US</h3>
+                        <ul class="conta">
+                            <li><i class="fa fa-map-marker" aria-hidden="true"></i> Address</li>
+                            <li><i class="fa fa-mobile" aria-hidden="true"></i> +01 1234569540</li>
+                            <li> <i class="fa fa-envelope" aria-hidden="true"></i><a href="#">
+                                    demo@gmail.com</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Menu Link</h3>
+                        <ul class="link_menu">
+                            <li class="active"><a href="#">Home</a></li>
+                            <li><a href="about.html"> about</a></li>
+                            <li><a href="room.html">Our Room</a></li>
+                            <li><a href="gallery.html">Gallery</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>News letter</h3>
+                        <form class="bottom_form">
+                            <input class="enter" placeholder="Enter your email" type="text"
+                                name="Enter your email">
+                            <button class="sub_btn">subscribe</button>
+                        </form>
+                        <ul class="social_icon">
+                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10 offset-md-1">
 
-    <!-- custom js for this page -->
-    <script src="{{ asset('admin/js/form-validation.js') }}"></script>
-    <script src="{{ asset('admin/js/bootstrap-maxlength.js') }}"></script>
-    <script src="{{ asset('admin/js/inputmask.js') }}"></script>
-    <script src="{{ asset('admin/js/select2.js') }}"></script>
-    <script src="{{ asset('admin/js/typeahead.js') }}"></script>
-    <script src="{{ asset('admin/js/tags-input.js') }}"></script>
-    <script src="{{ asset('admin/js/dropzone.js') }}"></script>
-    <script src="{{ asset('admin/js/dropify.js') }}"></script>
-    <script src="{{ asset('admin/js/bootstrap-colorpicker.js') }}"></script>
-    <script src="{{ asset('admin/js/datepicker.js') }}"></script>
-    <script src="{{ asset('admin/js/timepicker.js') }}"></script>
-    <!-- end custom js for this page -->
+                            <p>
+                                © 2019 All Rights Reserved. Design by <a href="https://html.design/"> Free Html
+                                    Templates</a>
+                                <br><br>
+                                Distributed by <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
+                            </p>
 
-    <!-- inject:js -->
-    <script src="{{ asset('admin/vendors/feather-icons/feather.min.js') }}"></script>
-    <script src="{{ asset('admin/js/template.js') }}"></script>
-    <!-- endinject -->
-    <!-- custom js for this page -->
-    <script src="{{ asset('admin/js/dashboard.js') }}"></script>
-    <script src="{{ asset('admin/js/datepicker.js') }}"></script>
-    <!-- end custom js for this page -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- end footer -->
+    <!-- Javascript files-->
+    <script>
+        let card = document.querySelector(".profile-card"); //declearing profile card element
+        card.addEventListener("click", function() { //on click on profile picture toggle hidden class from css
+            console.log('hwllo');
+        })
+    </script>
+    <script src="{{ asset('user/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('user/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('user/js/jquery-3.0.0.min.js') }}"></script>
+    <!-- sidebar -->
+    <script src="{{ asset('user/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+    <script src="{{ asset('user/js/custom.js') }}"></script>
 </body>
 
 </html>
