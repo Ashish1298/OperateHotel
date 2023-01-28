@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class ServiceCategory extends Model
 {
     use HasFactory;
-    use HasFactory;
     protected $table = 'service_categories';
     public $primaryKey = 'id';
     public $timestamps = true;

@@ -146,7 +146,7 @@
                                             <img src="{{ asset('admin/images/user/'.Auth::user()->image) }}" alt="" style="height:45px; width:50px; left:0; margin-top:-10px " class="rounded-circle">
                                         </a>
                                         <div class="dropdown-content" style="left:0;">
-                                            <a href="{{route('profile.index')}}">My Profile</a>
+                                            <a href="{{route('userProfile.index')}}">My Profile</a>
                                             <a href="#">Link 2</a>
                                             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">logout</a>
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -162,7 +162,7 @@
             </div>
         </div>
 
-
+        
     </header>
     <!-- end header inner -->
     <!-- end header -->
@@ -245,7 +245,7 @@
                 </div>
                 <div class="col-md-7">
                     <div class="about_img">
-                        <figure><img src="images/about.png" alt="#" /></figure>
+                        <figure><img src="{{ asset('user/images/about.png') }}" alt="#" /></figure>
                     </div>
                 </div>
             </div>

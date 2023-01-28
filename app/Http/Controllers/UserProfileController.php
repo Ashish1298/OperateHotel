@@ -1,30 +1,31 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
-use App\Models\Room;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Auth;
-use App\Models\Profile;
-use Exception;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
-class ProfileController extends Controller
+use Exception;
+
+use Illuminate\Http\Request;
+
+class UserProfileController extends Controller
 {
-    public function index() 
+    
+    public function index()
     {
+        return view('user.profile.index');
         
-        return view('admin.Dashboard.profile.index');
     }
 
-
-    public function createProfile()
+    public function createUserProfile()
     {
         $users = User::all();
-        return view('admin.Dashboard.profile.create', compact('users'));
+        return view('user.profile.create', compact('users'));
     }
 
-    public function storeProfile(Request $request) 
+    
+    public function storeUserProfile(Request $request)
     {
         try {
             $request -> validate([
@@ -49,39 +50,16 @@ class ProfileController extends Controller
             $user->name = $request-> name;
             $user->phone_number = $request->phone_number;
             $user->dateOfBirth = $request->dateOfBirth;
-            
             $user->update();
 
             toastr()->success('Profile edited successfully!');
             return redirect()->route('profile.index');
 
         } catch (Exception $exception) {
-
             toastr()->error('Error While Editing Profile !');
             return redirect()->back()->with('error', 'This is the error' . $exception);
         }
     }
-
-
-    // public function index() 
-    // {
-
-    // }
-
-    // public function index() 
-    // {
-
-    // }
-
-    // public function index() 
-    // {
-
-    // }
-
-    // public function index() 
-    // {
-
-    // }
 
     
 }

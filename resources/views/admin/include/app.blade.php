@@ -197,6 +197,27 @@
                             </a>
                         </li>
 
+                        <li class="side-nav-item">
+                            <a href="{{route('paymentMethod.index')}}" class="side-nav-link">
+                                <i class="uil-calender"></i>
+                                <span> Payment Method </span>
+                            </a>
+                        </li>
+
+                        <li class="side-nav-item">
+                            <a href="{{route('payment.index')}}" class="side-nav-link">
+                                <i class="uil-calender"></i>
+                                <span> Payment </span>
+                            </a>
+                        </li>
+
+                        <li class="side-nav-item">
+                            <a href="{{route('order.index')}}" class="side-nav-link">
+                                <i class="uil-calender"></i>
+                                <span> Order </span>
+                            </a>
+                        </li>
+
 
                     </ul>
 

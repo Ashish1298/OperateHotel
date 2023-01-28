@@ -8,7 +8,12 @@ use App\Http\Controllers\FoodController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ServiceCategoryController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserProfileController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\PaymentMethodController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\MapController;
+
 
 
 
@@ -22,7 +27,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/admin/home', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 
 
+    // Routes For admin profile
 
+    Route::get("/userProfile", [UserProfileController::class, 'index'])->name('userProfile.index');
+
+    Route::get("/createUserProfile", [UserProfileController::class, 'createUserProfile'])->name('userProfile.create');
+    // create Profile route
+    Route::post("/storeUserProfile", [UserProfileController::class, 'storeUserProfile'])->name('userProfile.store');
 
 
 
@@ -125,6 +136,49 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
     Route::get("/deleteMap/{id}", [MapController::class, 'deleteMap'])->name('map.delete');
     //Rout for updating Map 
     Route::post("/updateMap/{id}", [MapController::class, 'updateMap'])->name('map.edit');
+
+
+    // admin payment route
+    Route::get("/payment", [PaymentController::class, 'index'])->name('payment.index');
+    // Admin create payment route
+    Route::get("/createrPayment", [PaymentController::class, 'createPayment'])->name('payment.create');
+    // create payment route
+    Route::post("/storePayment", [PaymentController::class, 'storePayment'])->name('payment.store');
+    // payment  edit route
+    Route::get("/paymentEdit/{id}", [PaymentController::class, 'showPayment'])->name('payment.show');
+    // payment  delete route
+    Route::get("/deletePayment/{id}", [PaymentController::class, 'deletePayment'])->name('payment.delete');
+    //payment for updating Food 
+    Route::post("/updatePayment/{id}", [PaymentController::class, 'updatePayment'])->name('payment.edit');
+
+
+    // admin payment method route
+    Route::get("/paymentMethod", [PaymentMethodController::class, 'index'])->name('paymentMethod.index');
+    // Admin create payment Method route
+    Route::get("/createrPaymentMethod", [PaymentMethodController::class, 'createPaymentMethod'])->name('paymentMethod.create');
+    // create payment Method route
+    Route::post("/storePaymentMethod", [PaymentMethodController::class, 'storePaymentMethod'])->name('paymentMethod.store');
+    // payment Method edit route
+    Route::get("/paymentMethodEdit/{id}", [PaymentMethodController::class, 'showPaymentMethod'])->name('paymentMethod.show');
+    // payment Method delete route
+    Route::get("/deletePaymentMethod/{id}", [PaymentMethodController::class, 'deletePaymentMethod'])->name('paymentMethod.delete');
+    //payment Method for updating Food 
+    Route::post("/updatePaymentMethod/{id}", [PaymentMethodController::class, 'updatePaymentMethod'])->name('paymentMethod.edit');
+
+
+    // Order route
+    Route::get("/Order", [OrderController::class, 'index'])->name('order.index');
+    // Order creating route
+    Route::get("/createrOrder", [OrderController::class, 'createOrder'])->name('order.create');
+    // create Order route
+    Route::post("/storeOrder", [OrderController::class, 'storeOrder'])->name('order.store');
+    // Order  edit route
+    Route::get("/OrderEdit/{id}", [OrderController::class, 'showOrder'])->name('order.show');
+    // Order deleting route
+    Route::get("/deleteOrder/{id}", [OrderController::class, 'deleteOrder'])->name('order.delete');
+    //Rout for updating Order 
+    Route::post("/updateOrder/{id}", [OrderController::class, 'updateOrder'])->name('order.edit');
+
 
 
 });

@@ -58,7 +58,7 @@
         <!-- end row -->
                 <div class="card ">
                     <div class="card-body align-items-center ">
-                        <h4 class="header-title mt-0 mb-3">Seller Information</h4>
+                        <h4 class="header-title mt-0 mb-3">About Me</h4>
                         <p class="text-muted font-13">
                             {{ Auth::user()->bio }}
                         </p>
