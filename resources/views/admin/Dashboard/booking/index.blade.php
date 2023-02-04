@@ -18,10 +18,8 @@
         <div class="card">
             <div class="card-body ">
                 <div class="d-flex justify-content-between align-items-center">
-                <h4 class="header-title">Food</h4>
-                <div>
-                    <a href="{{route('food.create')}}" class="btn btn-primary mb-3 mb-lg-0"><i class='bx bxs-plus-square'></i>Create Food</a>
-                </div>
+                <h4 class="header-title">Manage Bookings</h4>
+                
                 </div>
 
                 <ul class="nav nav-tabs nav-bordered mb-3">
@@ -37,29 +35,33 @@
                             <table class="table table-striped table-centered">
                                 <thead>
                                     <tr>
-                                        <th>Food Name</th>
-                                        <th class="w-25">Image</th>
-                                        <th>Price</th>
+                                        <th>Booking ID</th>
+                                        <th>Room ID</th>
+                                        <th>User ID</th>
+                                        <th>Check In Date</th>
+                                        <th>Check Out Date</th>
+                                        <th>No of people</th>
                                         <th>Action</th>
                                     </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        @foreach($food as $item)
+
+                                    <tbody>
                                         <tr>
-                                            <td>{{ Str::limit($item->food_name,70)}}</td>
-                                            <td><img src="{{asset('admin/images/food/'.$item->image)}}" alt="" class="w-25"></td>
-                                            <td>{{($item->price)}}</td>
-                                            <td>
-                                                <a href="{{ route('food.show',$item->id )}}" class="action-icon" title="edit"><i class="mdi mdi-pencil"></i></button></a>
-                                                <a href="{{ route('food.delete',$item->id )}}" class="action-icon" title="delete"><i class="mdi mdi-delete"></i></button></a>
-                                            </td>
+                                            @foreach($bookings as $item)
+                                            <tr>
+                                                <td>{{($item->id)}}</td>
+                                                <td>{{($item->room_id)}}</td>
+                                                <td>{{($item->user_id)}}</td>
+                                                <td>{{($item->checkIn)}}</td>
+                                                <td>{{($item->checkOut)}}</td>
+                                                <td>{{($item->noOfPeople)}}</td>
+                                                <td>
+                                                    <a href="{{ route('adminBooking.delete',$item->id )}}" class="action-icon" title="delete"><i class="mdi mdi-delete"></i></button></a>
+                                                </td>
+                                            </tr>
+                                            @endforeach
                                         </tr>
-                                        @endforeach
-                                    </tr>
-                                    
-                                </tbody>
-                            </table>
+                                        
+                                    </tbody>
                         </div> <!-- end table-responsive-->                     
                     </div> <!-- end preview-->
 

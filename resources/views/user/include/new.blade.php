@@ -117,7 +117,7 @@
                 <div class="row">
                     <div class="col-xl-3 col logo_section">
                         <div class="" style="display: block;">
-                            <a><img src="{{ asset('admin/images/logo.png') }}" alt="Company Logo"  style="height:70px; width:75px;  margin-top:-5px " /></a>
+                            <a href="{{ route('home') }}"><img src="{{ asset('admin/images/logo.png') }}" alt="Company Logo"  style="height:70px; width:75px;  margin-top:-5px " /></a>
                         </div>
                     </div>
                     <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
@@ -125,11 +125,32 @@
                             
                             <div class="collapse navbar-collapse" id="navbarsExample04">
                                 <ul class="navbar-nav mr-auto">
-                                    <li class="nav-item active">
-                                        <a class="nav-link" href="index.html">Profile</a>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('userHome.index') }}">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('userAbout1.index') }}">About</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('userRoom.index') }}">rooms</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('userGallery.index') }}">Gallery</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('userBlog.index') }}">Blog</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('userOrder.index') }}">Order</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('userOffer.index') }}">Offers</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('userContact.index') }}">contact</a>
                                     </li>
                                     <li class="dropdown profile-menu-head ">
-                                        <a class="nav-link dropbtn" href="" style="border-bottom: none;">
+                                        <a href="{{route('userProfile.index')}}" class="nav-link dropbtn" href="" style="border-bottom: none;">
                                             <img src="{{ asset('admin/images/user/'.Auth::user()->image) }}" alt="" style="height:45px; width:50px; left:0; margin-top:-10px " class="rounded-circle">
                                         </a>
                                         <div class="dropdown-content" style="left:0;">

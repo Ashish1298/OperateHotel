@@ -5,7 +5,7 @@
         <div class="card">
             <div class="card-body ">
                 <div class="card-body d-flex align-items-center">
-                <h4 class="header-title">Update Payment Method</h4>
+                <h4 class="header-title">Update Order </h4>
                 </div>
 
                 <ul class="nav nav-tabs nav-bordered mb-3">
@@ -22,18 +22,28 @@
                                 <div class="card-title d-flex align-items-center">
                                     <div><i class="bx bxs-plus-square me-1 font-22 text-primary"></i>
                                     </div>
-                                    <h5 class="mb-0 text-primary">Update Payment Method</h5>
+                                    <h5 class="mb-0 text-primary">Update Order</h5>
                                 </div>
                                 <hr>
-                                <form  action="{{ route('paymentMethod.edit',$paymentMethod->id) }}" method="POST" enctype="multipart/form-data" class="row g-3">
+                                {{-- action="{{ route('brand.store') }}" --}}
+                                <form  action="{{ route('order.edit', $orders->id) }}" method="POST" enctype="multipart/form-data" class="row g-3">
                                     @csrf
-                                    <div class="col-md-12">
-                                        <label for="inputName" class="form-label">Payment Method Name</label>
-                                        <input type="text" name="payment_method" class="form-control"  value="{{ $paymentMethod->payment_method }}" id="inputName" required>
+                                    <div class="col-md-12 w=100">
+                                        <label class="form-label">Select Food</label>
+                                        <select name="food_id" class="single-select">
+                                            @foreach ($foods as $food)
+                                            <option value="{{ $food -> id }}" @if ($orders -> food_id == $food-> id ) selected @endif>{{ $food -> food_name }}</option>
+                                            @endforeach  
+                                        </select>
                                     </div>
-                                    <div class="row-12">
-                                        <label for="inputAddress" class="form-label ">Description</label>
-                                        <textarea class="form-control" id="inputAddress" name="description"  value="{{ $paymentMethod->description }}" placeholder="Description..." rows="3"></textarea>
+                                    <div class="col-md-12">
+                                        <label for="payment" class="form-label">Quantity</label>
+                                        <select name="quantity" class="single-select">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                        </select>
                                     </div>
                                     <div class="d-flex justify-content-center">
                                         <button type="submit" class="btn btn-primary px-5">Update</button>

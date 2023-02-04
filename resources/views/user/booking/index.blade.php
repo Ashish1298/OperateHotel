@@ -24,8 +24,15 @@
     <link rel="icon" href="{{ asset('user/images/fevicon.png') }}" type="image/gif" />
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+    <!-- third party css -->
+    <link href="{{ asset('admin/css/vendor/jquery-jvectormap-1.2.2.css') }}" rel="stylesheet" type="text/css" />
+    <!-- third party css end -->
 
+    <!-- App css -->
+    <link href="{{ asset('admin/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin/css/app-modern.min.css') }}" rel="stylesheet" type="text/css" id="light-style" />
+    <link href="{{ asset('admin/css/app-modern-dark.min.css') }}" rel="stylesheet" type="text/css" id="dark-style" />
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
     <!-- Tweaks for older IEs-->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
@@ -79,6 +86,12 @@
             background-color: #3e8e41;
         }
 
+        .footer {
+            position:fixed;bottom:0;
+            width:100%;
+            display:block;
+        }
+
         @media only screen and (min-width: 600px) {
 
             .dropbtn {
@@ -96,9 +109,6 @@
 <!-- body -->
 
 <body class="main-layout">
-    <div class="loader_bg">
-        <div class="loader"><img src="{{ asset('user/images/loading.gif') }}" alt="#" /></div>
-    </div>
     <!-- header -->
     <header>
         <!-- header inner -->
@@ -106,46 +116,38 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xl-3 col logo_section">
-                        <div class="full">
-                            <div class="center-desk">
-                                <div class="logo">
-                                    <a href="{{ route('home') }}"><img src="{{ asset('admin/images/logo.png') }}"alt="Company Logo"  style="height:70px; width:75px; left:0; margin-top:-5px " /></a>
-                                </div>
-                            </div>
+                        <div class="" style="display: block;">
+                            <a><img src="{{ asset('admin/images/logo.png') }}" alt="Company Logo"  style="height:70px; width:75px;  margin-top:-5px margin-left:10%; margin-rightt:10%" /></a>
                         </div>
                     </div>
                     <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
                         <nav class="navigation navbar navbar-expand-md navbar-dark ">
-                            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false"
-                                aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
+                            
                             <div class="collapse navbar-collapse" id="navbarsExample04">
                                 <ul class="navbar-nav mr-auto">
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ route('userHome.index') }}">Home</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('userAbout1.index') }}">About</a>
+                                        <a class="nav-link" href="about.html">About</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('userRoom.index') }}">rooms</a>
+                                        <a class="nav-link" href="room.html">rooms</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('userGallery.index') }}">Gallery</a>
+                                        <a class="nav-link" href="gallery.html">Gallery</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('userBlog.index') }}">Blog</a>
+                                        <a class="nav-link" href="blog.html">Blog</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('userOrder.index') }}">Order</a>
+                                        <a class="nav-link" href="contact.html">Food</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('userOffer.index') }}">Offers</a>
+                                        <a class="nav-link" href="index.html">Offers</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('userContact.index') }}">contact</a>
+                                        <a class="nav-link" href="contact.html">Contact</a>
                                     </li>
                                     <li class="dropdown profile-menu-head ">
                                         <a href="{{route('userProfile.index')}}" class="nav-link dropbtn" href="" style="border-bottom: none;">
@@ -167,74 +169,47 @@
                 </div>
             </div>
         </div>
+    </header>
 
-        
+    <div class="tab-content" style="margin-top: 20px; margin-right:50px; margin-left:50px;">
+        <div class="tab-pane show active" id="striped-rows-preview">
+            <h1>YOUR BOOKINGS</h1>
+            <div class="table-responsive">
+                <table class="table table-striped table-centered">
+                    <thead>
+                        <tr>
+                            <th>Booking ID</th>
+                            <th>Room ID</th>
+                            <th>User ID</th>
+                            <th>Check In Date</th>
+                            <th>Check Out Date</th>
+                            <th>No of people</th>
+                            <th>Action</th>
+                        </tr>
 
-    <!-- end contact -->
+                        <tbody>
+                            <tr>
+                                @foreach($bookings as $item)
+                                <tr>
+                                    <td>{{($item->id)}}</td>
+                                    <td>{{($item->room_id)}}</td>
+                                    <td>{{($item->user_id)}}</td>
+                                    <td>{{($item->checkIn)}}</td>
+                                    <td>{{($item->checkOut)}}</td>
+                                    <td>{{($item->noOfPeople)}}</td>
+                                    <td>
+                                        <a href="{{ route('booking.delete',$item->id )}}" class="action-icon" title="delete"><i class="mdi mdi-delete"></i></button></a>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tr>
+                            
+                        </tbody>
+            </div> <!-- end table-responsive-->                     
+        </div> <!-- end preview-->
 
-    <div class="content-page">
-        @yield('content')
     </div>
     <!--  footer -->
-    <footer>
-        <div class="footer">
-            <div class="container">
-                <div class="row">
-                    <div class=" col-md-4">
-                        <h3>Contact US</h3>
-                        <ul class="conta">
-                            <li><i class="fa fa-map-marker" aria-hidden="true"></i> Address</li>
-                            <li><i class="fa fa-mobile" aria-hidden="true"></i> +01 1234569540</li>
-                            <li> <i class="fa fa-envelope" aria-hidden="true"></i><a href="#">
-                                    demo@gmail.com</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4">
-                        <h3>Menu Link</h3>
-                        <ul class="link_menu">
-                            <li><a href="{{ route('userHome.index') }}">Home</a></li>
-                            <li><a href="{{ route('userAbout1.index') }}"> about</a></li>
-                            <li><a href="{{ route('userRoom.index') }}">Our Room</a></li>
-                            <li><a href="{{ route('userGallery.index') }}">Gallery</a></li>
-                            <li><a href="{{ route('userBlog.index') }}">Blog</a></li>
-                            <li><a href="{{ route('userOffer.index') }}">Offer</a></li>
-                            <li><a href="{{ route('userContact.index') }}">Contact Us</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4">
-                        <h3>News letter</h3>
-                        <form class="bottom_form">
-                            <input class="enter" placeholder="Enter your email" type="text"
-                                name="Enter your email">
-                            <button class="sub_btn">subscribe</button>
-                        </form>
-                        <ul class="social_icon">
-                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-10 offset-md-1">
-
-                            <p>
-                                © 2019 All Rights Reserved. Design by <a href="https://html.design/"> Free Html
-                                    Templates</a>
-                                <br><br>
-                                Distributed by <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
-                            </p>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
     <!-- end footer -->
     <!-- Javascript files-->
     <script>
@@ -243,6 +218,14 @@
             console.log('hwllo');
         })
     </script>
+    <script src="{{ asset('admin/js/vendor.min.js') }}"></script>
+    <script src="{{ asset('admin/js/app.min.js') }}"></script>
+
+    <!-- third party js -->
+    <script src="{{ asset('admin/js/vendor/apexcharts.min.js') }}"></script>
+    <script src="{{ asset('admin/js/vendor/jquery-jvectormap-1.2.2.min.js') }}"></script>
+    <script src="{{ asset('admin/js/vendor/jquery-jvectormap-world-mill-en.js') }}"></script>
+    <!-- third party js ends -->
     <script src="{{ asset('user/js/jquery.min.js') }}"></script>
     <script src="{{ asset('user/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('user/js/jquery-3.0.0.min.js') }}"></script>

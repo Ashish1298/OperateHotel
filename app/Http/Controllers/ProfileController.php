@@ -13,7 +13,6 @@ class ProfileController extends Controller
 {
     public function index() 
     {
-        
         return view('admin.Dashboard.profile.index');
     }
 

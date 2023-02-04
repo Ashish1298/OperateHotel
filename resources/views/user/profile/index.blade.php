@@ -44,17 +44,12 @@
                         <p class="text-muted font-13">
                             {{ Auth::user()->bio }}
                         </p>
-
                         <hr/>
-
                         <div class="text-start">
                             <p class="text-muted"><strong>Full Name :</strong> <span class="ms-2">{{ Auth::user()->name }}</span></p>
-
                             <p class="text-muted"><strong>Mobile :</strong><span class="ms-2">{{ Auth::user()->phone_number }}</span></p>
-
                             <p class="text-muted"><strong>Email :</strong> <span class="ms-2">{{ Auth::user()->email}}</span></p>
                             <p class="text-muted"><strong>Date of Birth :</strong> <span class="ms-2">{{ Auth::user()->dateOfBirth}}</span></p>
-
                         </div>
                     </div>
                 </div>

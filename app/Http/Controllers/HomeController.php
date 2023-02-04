@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Room;
 
 use Illuminate\Http\Request;
 
@@ -23,7 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('user.index');
+        $rooms = Room::all();
+        return view('user.home.index', compact('rooms'));
     }
 
     public function adminHome()

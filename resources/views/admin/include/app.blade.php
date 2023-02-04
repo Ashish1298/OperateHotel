@@ -81,7 +81,7 @@
                             aria-expanded="false">
                             <span class="account-user-avatar">
                                 {{-- <img src="{{ asset('admin/images/user/'.Auth::user()->image) }}" alt="Image Profile" style="height: 100px; width:100px" class="rounded-circle img-thumbnail object-fit:cover"> --}}
-                                <img src="{{ asset('admin/images/user/'.Auth::user()->image) }}" alt="user-image" class="rounded-circle">
+                                <img src="{{ asset('admin/images/user/'.Auth::user()->image) }}" alt="Admin-image" class="rounded-circle">
                             </span>
                             <span class="account-user-name mt-2">{{ Auth::user()->name }}</span>
                         </a>
@@ -156,14 +156,14 @@
 
                         <li class="side-nav-item">
                             <a href="{{route('roomCategory.index')}}" class="side-nav-link">
-                                <i class="uil-calender"></i>
+                                <i class="uil uil-layers-alt"></i>
                                 <span> Room Category </span>
                             </a>
                         </li>
 
                         <li class="side-nav-item">
                             <a href="{{route('room.index')}}" class="side-nav-link">
-                                <i class="uil-calender"></i>
+                                <i class="uil uil-bed-double"></i>
                                 <span> Room </span>
                             </a>
                         </li>
@@ -171,50 +171,57 @@
 
                         <li class="side-nav-item">
                             <a href="{{route('food.index')}}" class="side-nav-link">
-                                <i class="uil-calender"></i>
+                                <i class="uil uil-food"></i>
                                 <span> Food </span>
                             </a>
                         </li>
 
                         <li class="side-nav-item">
                             <a href="{{route('serviceCategory.index')}}" class="side-nav-link">
-                                <i class="uil-calender"></i>
+                                <i class="uil uil-servers"></i>
                                 <span> Service Category</span>
                             </a>
                         </li>
 
                         <li class="side-nav-item">
                             <a href="{{route('service.index')}}" class="side-nav-link">
-                                <i class="uil-calender"></i>
+                                <i class=" uil-server"></i>
                                 <span> Service </span>
                             </a>
                         </li>
 
                         <li class="side-nav-item">
                             <a href="{{route('map.index')}}" class="side-nav-link">
-                                <i class="uil-calender"></i>
+                                <i class="uil-map-marker-shield"></i>
                                 <span> Map </span>
                             </a>
                         </li>
 
                         <li class="side-nav-item">
                             <a href="{{route('paymentMethod.index')}}" class="side-nav-link">
-                                <i class="uil-calender"></i>
+                                <i class="uil-usd-square"></i>
                                 <span> Payment Method </span>
                             </a>
                         </li>
-
+                        
                         <li class="side-nav-item">
                             <a href="{{route('payment.index')}}" class="side-nav-link">
-                                <i class="uil-calender"></i>
+                                <i class="uil-dollar-alt"></i>
                                 <span> Payment </span>
                             </a>
                         </li>
 
                         <li class="side-nav-item">
                             <a href="{{route('order.index')}}" class="side-nav-link">
-                                <i class="uil-calender"></i>
+                                <i class="uil-database-alt"></i>
                                 <span> Order </span>
+                            </a>
+                        </li>
+
+                        <li class="side-nav-item">
+                            <a href="{{route('adminBooking.index')}}" class="side-nav-link">
+                                <i class="uil-book-open"></i>
+                                <span> Booking </span>
                             </a>
                         </li>
 

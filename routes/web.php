@@ -8,11 +8,21 @@ use App\Http\Controllers\FoodController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ServiceCategoryController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\UserProfileController;
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\AdminBookingController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PaymentMethodController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\MapController;
+use App\Http\Controllers\UserProfileController;
+use App\Http\Controllers\UserHomeController;
+use App\Http\Controllers\UserAboutController;
+use App\Http\Controllers\UserRoomController;
+use App\Http\Controllers\UserGalleryController;
+use App\Http\Controllers\UserBlogController;
+use App\Http\Controllers\UserOrderController;
+use App\Http\Controllers\UserContactController;
+use App\Http\Controllers\UserOfferController;
 
 
 
@@ -27,13 +37,49 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/admin/home', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 
 
-    // Routes For admin profile
 
+    // Route for user home
+    Route::get("/userHome", [UserHomeController::class, 'index'])->name('userHome.index');
+    // Routes For user profile
     Route::get("/userProfile", [UserProfileController::class, 'index'])->name('userProfile.index');
 
     Route::get("/createUserProfile", [UserProfileController::class, 'createUserProfile'])->name('userProfile.create');
     // create Profile route
-    Route::post("/storeUserProfile", [UserProfileController::class, 'storeUserProfile'])->name('userProfile.store');
+    Route::get("/storeUserProfile", [UserProfileController::class, 'storeUserProfile'])->name('userProfile.store');
+        
+        //User Booking Route and home route
+
+    Route::post("/storeBooking", [UserHomeController::class, 'storeBooking'])->name('booking.store');
+    // Show user bookings
+    Route::get("/showBooking", [UserHomeController::class, 'showBooking'])->name('booking.show');
+    //Delete user bookings 
+    Route::get("/deleteBooking/{id}", [UserHomeController::class, 'deleteBooking'])->name('booking.delete');
+
+    // User About Route
+    Route::get("/userAbout", [UserAboutController::class, 'index'])->name('userAbout1.index');
+
+    // user Room Routes
+    Route::get("/userRoom", [UserRoomController::class, 'index'])->name('userRoom.index');
+
+
+    //user gallery routes
+    Route::get("/userGallery", [UserGalleryController::class, 'index'])->name('userGallery.index');
+
+    //user Blog routes
+    Route::get("/userBlog", [UserBlogController::class, 'index'])->name('userBlog.index');
+
+    // Uaer Order routes
+    Route::get("/userOrder", [UserOrderController::class, 'index'])->name('userOrder.index');
+
+    // Uaer Contact routes
+    Route::get("/userContact", [UserContactController::class, 'index'])->name('userContact.index');
+    
+    // Uaer Offer routes
+    Route::get("/userOffer", [UserOfferController::class, 'index'])->name('userOffer.index');
+
+
+
+
 
 
 
@@ -180,5 +226,23 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
     Route::post("/updateOrder/{id}", [OrderController::class, 'updateOrder'])->name('order.edit');
 
 
+
+    // Order route
+    Route::get("/adminBooking", [AdminBookingController::class, 'index'])->name('adminBooking.index');
+    // Order creating route
+    Route::get("/createAdminBooking", [AdminBookingController::class, 'createAdminBooking'])->name('adminBooking.create');
+    // create Order route
+    Route::post("/storeAdminBooking", [AdminBookingController::class, 'storeAdminBooking'])->name('adminBooking.store');
+    // Order  edit route
+    Route::get("/AdminBookingEdit/{id}", [AdminBookingController::class, 'showAdminBooking'])->name('adminBooking.show');
+    // Order deleting route
+    Route::get("/deleteAdminBooking/{id}", [AdminBookingController::class, 'deleteAdminBooking'])->name('adminBooking.delete');
+    //Rout for updating Order 
+    Route::post("/updateAdminBooking/{id}", [AdminBookingController::class, 'updateAdminBooking'])->name('adminBooking.edit');
+
+
+
+
+    
 
 });
