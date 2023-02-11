@@ -10,51 +10,13 @@
             </div>
         </div>
         <div class="row">
+            @foreach ($rooms as $item)
             <div class="col-md-3 col-sm-6">
                 <div class="gallery_img">
-                    <figure><img src="{{ asset('user/images/gallery1.jpg') }}" alt="#" /></figure>
+                    <figure><img src="{{asset('admin/images/room/'.$item->image)}}" /></figure>
                 </div>
             </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="gallery_img">
-                    <figure><img src="{{ asset('user/images/gallery2.jpg') }}" alt="#" /></figure>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="gallery_img">
-                    <figure><img src="{{ asset('user/images/gallery3.jpg') }}" alt="#" /></figure>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="gallery_img">
-                    <figure><img src="{{ asset('user/images/gallery4.jpg') }}" alt="#" /></figure>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="gallery_img">
-                    <figure><img src="{{ asset('user/images/gallery5.jpg') }}" alt="#" /></figure>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="gallery_img">
-                    <figure><img src="{{ asset('user/images/gallery6.jpg') }}" alt="#" /></figure>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="gallery_img">
-                    <figure><img src="{{ asset('user/images/gallery7.jpg') }}" alt="#" /></figure>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="gallery_img">
-                    <figure><img src="{{ asset('user/images/gallery8.jpg') }}" alt="#" /></figure>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="gallery_img">
-                    <figure><img src="{{ asset('user/images/gallery8.jpg') }}" alt="#" /></figure>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>

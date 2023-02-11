@@ -14,6 +14,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PaymentMethodController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\MapController;
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\UserHomeController;
 use App\Http\Controllers\UserAboutController;
@@ -45,13 +46,15 @@ Route::get('/admin/home', [App\Http\Controllers\HomeController::class, 'adminHom
 
     Route::get("/createUserProfile", [UserProfileController::class, 'createUserProfile'])->name('userProfile.create');
     // create Profile route
-    Route::get("/storeUserProfile", [UserProfileController::class, 'storeUserProfile'])->name('userProfile.store');
+    Route::post("/storeUserProfile", [UserProfileController::class, 'storeUserProfile'])->name('userProfile.store');
         
         //User Booking Route and home route
 
     Route::post("/storeBooking", [UserHomeController::class, 'storeBooking'])->name('booking.store');
+    
     // Show user bookings
     Route::get("/showBooking", [UserHomeController::class, 'showBooking'])->name('booking.show');
+
     //Delete user bookings 
     Route::get("/deleteBooking/{id}", [UserHomeController::class, 'deleteBooking'])->name('booking.delete');
 
@@ -61,12 +64,8 @@ Route::get('/admin/home', [App\Http\Controllers\HomeController::class, 'adminHom
     // user Room Routes
     Route::get("/userRoom", [UserRoomController::class, 'index'])->name('userRoom.index');
 
-
     //user gallery routes
     Route::get("/userGallery", [UserGalleryController::class, 'index'])->name('userGallery.index');
-
-    //user Blog routes
-    Route::get("/userBlog", [UserBlogController::class, 'index'])->name('userBlog.index');
 
     // Uaer Order routes
     Route::get("/userOrder", [UserOrderController::class, 'index'])->name('userOrder.index');
@@ -241,7 +240,18 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
     Route::post("/updateAdminBooking/{id}", [AdminBookingController::class, 'updateAdminBooking'])->name('adminBooking.edit');
 
 
-
+    // admin About route
+    Route::get("/about", [AboutController::class, 'index'])->name('about.index');
+    // Admin create about route
+    Route::get("/createrAbout", [AboutController::class, 'createAbout'])->name('about.create');
+    // create About route
+    Route::post("/storeAbout", [AboutController::class, 'storeAbout'])->name('about.store');
+    // About  edit route
+    Route::get("/aboutEdit/{id}", [AboutController::class, 'showAbout'])->name('about.show');
+    // About delete route
+    Route::get("/deleteAbout/{id}", [AboutController::class, 'deleteAbout'])->name('about.delete');
+    //Rout for updating About 
+    Route::post("/updateAbout/{id}", [AboutController::class, 'updateAbout'])->name('about.edit');
 
     
 

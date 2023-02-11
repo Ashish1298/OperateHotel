@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\room;
 use Illuminate\Http\Request;
 
 class UserGalleryController extends Controller
@@ -9,6 +9,7 @@ class UserGalleryController extends Controller
     
     public function index()
     {
-        return view('user.gallery.index');
+        $rooms = Room::all();
+        return view('user.gallery.index', compact('rooms'));
     }
 }

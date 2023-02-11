@@ -138,9 +138,6 @@
                                         <a class="nav-link" href="{{ route('userGallery.index') }}">Gallery</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('userBlog.index') }}">Blog</a>
-                                    </li>
-                                    <li class="nav-item">
                                         <a class="nav-link" href="{{ route('userOrder.index') }}">Order</a>
                                     </li>
                                     <li class="nav-item">
@@ -196,6 +193,8 @@
     <!-- sidebar -->
     <script src="{{ asset('user/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
     <script src="{{ asset('user/js/custom.js') }}"></script>
+    <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+    {!! Toastr::message() !!}
 </body>
 
 </html>
