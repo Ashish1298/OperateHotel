@@ -129,25 +129,22 @@
                                         <a class="nav-link" href="{{ route('userHome.index') }}">Home</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="about.html">About</a>
+                                        <a class="nav-link" href="{{ route('userAbout1.index') }}">About</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="room.html">rooms</a>
+                                        <a class="nav-link" href="{{ route('userRoom.index') }}">rooms</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="gallery.html">Gallery</a>
+                                        <a class="nav-link" href="{{ route('userGallery.index') }}">Gallery</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="blog.html">Blog</a>
+                                        <a class="nav-link" href="{{ route('userOrder.index') }}">Order</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="contact.html">Food</a>
+                                        <a class="nav-link" href="{{ route('userOffer.index') }}">Offers</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="index.html">Offers</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="contact.html">Contact</a>
+                                        <a class="nav-link" href="{{ route('userContact.index') }}">contact</a>
                                     </li>
                                     <li class="dropdown profile-menu-head ">
                                         <a href="{{route('userProfile.index')}}" class="nav-link dropbtn" href="" style="border-bottom: none;">

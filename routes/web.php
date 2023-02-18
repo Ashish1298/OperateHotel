@@ -24,6 +24,7 @@ use App\Http\Controllers\UserBlogController;
 use App\Http\Controllers\UserOrderController;
 use App\Http\Controllers\UserContactController;
 use App\Http\Controllers\UserOfferController;
+use App\Http\Controllers\OfferController;
 
 
 
@@ -253,6 +254,19 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
     //Rout for updating About 
     Route::post("/updateAbout/{id}", [AboutController::class, 'updateAbout'])->name('about.edit');
 
+
+    // admin Offer route
+    Route::get("/offer", [OfferController::class, 'index'])->name('offer.index');
+    // Admin create Offer route
+    Route::get("/createrOffer", [OfferController::class, 'createOffer'])->name('offer.create');
+    // create Offer route
+    Route::post("/storeOffer", [OfferController::class, 'storeOffer'])->name('offer.store');
+    // Offer  edit route
+    Route::get("/offerEdit/{id}", [OfferController::class, 'showOffer'])->name('offer.show');
+    // Offer  delete route
+    Route::get("/deleteOffer/{id}", [OfferController::class, 'deleteOffer'])->name('offer.delete');
+    //Rout for updating Offer 
+    Route::post("/updateOffer/{id}", [OfferController::class, 'updateOffer'])->name('offer.edit');
     
 
 });

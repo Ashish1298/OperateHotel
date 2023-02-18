@@ -224,6 +224,12 @@
                                 <span> Booking </span>
                             </a>
                         </li>
+                        <li class="side-nav-item">
+                            <a href="{{route('offer.index')}}" class="side-nav-link">
+                                <i class="uil-book-open"></i>
+                                <span> Offer </span>
+                            </a>
+                        </li>
 
                         <li class="side-nav-item">
                             <a href="{{route('about.index')}}" class="side-nav-link">
