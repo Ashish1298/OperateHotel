@@ -20,7 +20,7 @@
                 <div class="d-flex justify-content-between align-items-center">
                 <h4 class="header-title">Offer</h4>
                 <div>
-                    <a href="{{route('offer.create')}}" class="btn btn-primary mb-3 mb-lg-0"><i class='bx bxs-plus-square'></i>Create Food</a>
+                    <a href="{{route('offer.create')}}" class="btn btn-primary mb-3 mb-lg-0"><i class='bx bxs-plus-square'></i>Create Offer</a>
                 </div>
                 </div>
 

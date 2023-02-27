@@ -142,6 +142,9 @@
                                         <a class="nav-link" href="{{ route('userOffer.index') }}">Offers</a>
                                     </li>
                                     <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('user.map.index') }}">Nearest Places</a>
+                                    </li>
+                                    <li class="nav-item">
                                         <a class="nav-link" href="{{ route('userContact.index') }}">contact</a>
                                     </li>
                                     <li class="dropdown profile-menu-head ">

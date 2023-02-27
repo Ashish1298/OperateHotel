@@ -40,44 +40,55 @@ Route::get('/admin/home', [App\Http\Controllers\HomeController::class, 'adminHom
 
 
 
-    // Route for user home
-    Route::get("/userHome", [UserHomeController::class, 'index'])->name('userHome.index');
-    // Routes For user profile
-    Route::get("/userProfile", [UserProfileController::class, 'index'])->name('userProfile.index');
+// Route for user home
+Route::get("/userHome", [UserHomeController::class, 'index'])->name('userHome.index');
+// Routes For user profile
+Route::get("/userProfile", [UserProfileController::class, 'index'])->name('userProfile.index');
 
-    Route::get("/createUserProfile", [UserProfileController::class, 'createUserProfile'])->name('userProfile.create');
-    // create Profile route
-    Route::post("/storeUserProfile", [UserProfileController::class, 'storeUserProfile'])->name('userProfile.store');
-        
-        //User Booking Route and home route
+Route::get("/createUserProfile", [UserProfileController::class, 'createUserProfile'])->name('userProfile.create');
+// create Profile route
+Route::post("/storeUserProfile", [UserProfileController::class, 'storeUserProfile'])->name('userProfile.store');
 
-    Route::post("/storeBooking", [UserHomeController::class, 'storeBooking'])->name('booking.store');
-    
-    // Show user bookings
-    Route::get("/showBooking", [UserHomeController::class, 'showBooking'])->name('booking.show');
+//User Booking Route and home route
 
-    //Delete user bookings 
-    Route::get("/deleteBooking/{id}", [UserHomeController::class, 'deleteBooking'])->name('booking.delete');
+Route::post("/storeBooking", [UserHomeController::class, 'storeBooking'])->name('booking.store');
 
-    // User About Route
-    Route::get("/userAbout", [UserAboutController::class, 'index'])->name('userAbout1.index');
+// Show user bookings
+Route::get("/showBooking", [UserHomeController::class, 'showBooking'])->name('booking.show');
 
-    // user Room Routes
-    Route::get("/userRoom", [UserRoomController::class, 'index'])->name('userRoom.index');
+//Delete user bookings 
+Route::get("/deleteBooking/{id}", [UserHomeController::class, 'deleteBooking'])->name('booking.delete');
 
-    //user gallery routes
-    Route::get("/userGallery", [UserGalleryController::class, 'index'])->name('userGallery.index');
+// User About Route
+Route::get("/userAbout", [UserAboutController::class, 'index'])->name('userAbout1.index');
 
-    // Uaer Order routes
-    Route::get("/userOrder", [UserOrderController::class, 'index'])->name('userOrder.index');
+// user Room Routes
+Route::get("/userRoom", [UserRoomController::class, 'index'])->name('userRoom.index');
 
-    // Uaer Contact routes
-    Route::get("/userContact", [UserContactController::class, 'index'])->name('userContact.index');
-    
-    // Uaer Offer routes
-    Route::get("/userOffer", [UserOfferController::class, 'index'])->name('userOffer.index');
+//user gallery routes
+Route::get("/userGallery", [UserGalleryController::class, 'index'])->name('userGallery.index');
+
+// Uaer Order routes
+Route::get("/userOrder", [UserOrderController::class, 'index'])->name('userOrder.index');
+
+// Uaer Contact routes
+Route::get("/userContact", [UserContactController::class, 'index'])->name('userContact.index');
+
+// Uaer Offer routes
+Route::get("/userOffer", [UserOfferController::class, 'index'])->name('userOffer.index');
 
 
+// payment
+// payment verify route
+Route::get("/payment/verify", [PaymentController::class, 'verifyPayment'])->name('khalti.verifyPayment');
+// payment store route
+Route::post("/payment/store", [PaymentController::class, 'paymentStore'])->name('userPayment.store');
+
+
+
+// nearest place map
+Route::get("/nearest-places", [UserHomeController::class, 'nearestPlace'])->name('user.map.index');
+Route::get("/nearest-places/{id}", [UserHomeController::class, 'nearestPlaceMap'])->name('user.map.show');
 
 
 
@@ -168,7 +179,7 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
     // Profile  delete route
     Route::get("/deleteProfile/{id}", [ProfileController::class, 'deleteProfile'])->name('profile.delete');
     //Rout for updating Service 
-    
+
 
     // Map route
     Route::get("/map", [MapController::class, 'index'])->name('map.index');
@@ -267,6 +278,4 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
     Route::get("/deleteOffer/{id}", [OfferController::class, 'deleteOffer'])->name('offer.delete');
     //Rout for updating Offer 
     Route::post("/updateOffer/{id}", [OfferController::class, 'updateOffer'])->name('offer.edit');
-    
-
 });

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Booking;
+use App\Models\Map;
 use App\Models\User;
 use App\Models\Room;
 use Exception;
@@ -63,6 +64,16 @@ class UserHomeController extends Controller
         $data->delete();
         toastr()->success('Service Deleted Successfully!!!');
         return redirect()->back();
+    }
+
+
+    public function nearestPlace(){
+        $maps = Map::all();
+        return view('user.map.index',compact('maps'));
+    }
+    public function nearestPlaceMap($id){
+        $map = Map::find($id);
+        return view('user.map.show',compact('map'));
     }
 
 }

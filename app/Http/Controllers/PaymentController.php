@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Payment;
 use Exception;
 use App\Models\User;
@@ -17,7 +18,7 @@ class PaymentController extends Controller
     public function index()
     {
         $payment = Payment::all();
-        return view('admin.Dashboard.payment.index',compact('payment'));
+        return view('admin.Dashboard.payment.index', compact('payment'));
     }
 
 
@@ -26,16 +27,16 @@ class PaymentController extends Controller
         $rooms = Room::all();
         $users = User::all();
         $paymentMethods = PaymentMethod::all();
-        return view('admin.Dashboard.payment.create', compact('rooms','users','paymentMethods'));
+        return view('admin.Dashboard.payment.create', compact('rooms', 'users', 'paymentMethods'));
     }
 
 
     public function storePayment(Request $request)
     {
         try {
-            $request -> validate([
-                'total_payment'=> 'required',
-                'payment_method_id'=> 'required'
+            $request->validate([
+                'total_payment' => 'required',
+                'payment_method_id' => 'required'
             ]);
             $payment = new Payment();
             $payment->total_payment = $request->total_payment;
@@ -46,7 +47,6 @@ class PaymentController extends Controller
 
             toastr()->success('Payment created successfully!');
             return redirect()->route('payment.index');
-
         } catch (Exception $exception) {
             dd($exception);
             toastr()->error('Error While Creating Payment!');
@@ -61,16 +61,16 @@ class PaymentController extends Controller
         $users = User::all();
         $paymentMethods = PaymentMethod::all();
         $payments = Payment::find($id);
-        return view('admin.Dashboard.payment.edit', compact('rooms','users','paymentMethods','payments'));
+        return view('admin.Dashboard.payment.edit', compact('rooms', 'users', 'paymentMethods', 'payments'));
     }
 
- 
+
     public function updatePayment(Request $request, $id)
     {
         try {
-            $request -> validate([
-                'total_payment'=> 'required',
-                'payment_method_id'=> 'required'
+            $request->validate([
+                'total_payment' => 'required',
+                'payment_method_id' => 'required'
             ]);
             $payment = Payment::find($id);
             $payment->total_payment = $request->total_payment;
@@ -81,7 +81,6 @@ class PaymentController extends Controller
 
             toastr()->success('Payment Updated successfully!');
             return redirect()->route('payment.index');
-
         } catch (Exception $exception) {
             dd($exception);
             toastr()->error('Error While Updating Payment!');
@@ -95,5 +94,76 @@ class PaymentController extends Controller
         $data->delete();
         toastr()->success('Payment Deleted Successfully!!!');
         return redirect()->back();
+    }
+
+
+
+
+    // payment verification
+
+    // verify payment
+    public function verifyPayment(Request $request)
+    {
+        $token = $request->token;
+        $amount = $request->amount;
+
+        $args = http_build_query(array(
+            'token' => $token,
+            'amount'  => $amount,
+        ));
+
+        $url = "https://khalti.com/api/v2/payment/verify/";
+
+        # Make the call using API.
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $args);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+        $secret_key = config('app.khalti_secret_key');
+
+        $headers = ["Authorization: Key $secret_key"];
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+        // Response
+        $response = curl_exec($ch);
+        $status_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+        return $response;
+    }
+
+
+    // payment store function
+    public function paymentStore(Request $request)
+    {
+
+        $data = json_decode($request->response);
+
+        dd($data);
+        // $amount = $data->amount / 100;
+        // try {
+
+        //     $bill = SellerBill::find($data->product_identity);
+        //     $user = User::find($bill->user_id);
+        //     $seller = Seller::where('user_id', $bill->user_id)->first();
+
+        //     $payment = new Payment();
+
+        //     $payment->sender = $user->id;
+        //     $payment->amount = $amount;
+        //     $payment->payment_type = "Khalti";
+        //     $payment->sellerBill_id = $data->product_identity;
+
+        //     $payment->save();
+
+        //     $seller->balance_amount = $seller->balance_amount - $amount;
+        //     $seller->update();
+
+        //     $bill->status = !$bill->status;
+        //     $bill->update();
+        // } catch (Exception $exception) {
+        //     return response()->back()->with($exception);
+        // }
     }
 }

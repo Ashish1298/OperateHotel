@@ -209,10 +209,6 @@
     </div>
     <!-- end page -->
 
-    <footer class="footer footer-alt">
-        2018 - 2021 © Hyper - Coderthemes.com
-    </footer>
-
     <!-- bundle -->
     <script src="{{ asset('admin/js/vendor.min.js') }}"></script>
     <script src="{{ asset('admin/js/app.min.js') }}"></script>

@@ -20,7 +20,9 @@
                     <div class="bed_room">
                         <h3>{{ $item->food_name }}</h3>
                         <h5>Price: {{ $item->price }}</h5>
-                        
+                    </div>
+                    <div class="row-md-10" style="margin-top: -8%">
+                        <button type="submit" class="book_btn">Order</button>
                     </div>
                 </div>
             </div>
