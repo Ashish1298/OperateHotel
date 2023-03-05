@@ -17,6 +17,7 @@ class AdminBookingController extends Controller
     
     public function index()
     {
+
         $bookings = Booking::all();
         return view('admin.Dashboard.booking.index',compact('bookings'));
     }
@@ -37,14 +38,15 @@ class AdminBookingController extends Controller
                 'checkIn'=> 'required',
                 'checkOut'=> 'required',
                 'room_id'=> 'required',
-                'noOfPeople'=> 'required',
+                'phone'=> 'required',
+
 
             ]);
             $bookings = new Booking();
             $bookings->checkIn = $request-> checkIn;
             $bookings->checkOut = $request-> checkOut;
             $bookings->room_id = $request->room_id;
-            $bookings->noOfPeople = $request->noOfPeople;
+            $bookings->phone = $request->phone;
             $bookings->user_id = auth()->user()->id;
             $bookings->save();
 
@@ -52,7 +54,7 @@ class AdminBookingController extends Controller
             return redirect()->route('booking.index');
 
         } catch (Exception $exception) {
-            dd($exception);
+            
             toastr()->error('Error While Booking Room !');
             return redirect()->back()->with('error', 'This is the error' . $exception);
         }

@@ -15,6 +15,8 @@ use App\Http\Controllers\PaymentMethodController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AdminMailController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\UserHomeController;
 use App\Http\Controllers\UserAboutController;
@@ -25,6 +27,7 @@ use App\Http\Controllers\UserOrderController;
 use App\Http\Controllers\UserContactController;
 use App\Http\Controllers\UserOfferController;
 use App\Http\Controllers\OfferController;
+
 
 
 
@@ -70,15 +73,20 @@ Route::get("/userGallery", [UserGalleryController::class, 'index'])->name('userG
 
 // Uaer Order routes
 Route::get("/userOrder", [UserOrderController::class, 'index'])->name('userOrder.index');
+// Uaer Order routes
+Route::post("/userOrderFood/{id}", [UserOrderController::class, 'store'])->name('userOrder.store');
 
 // Uaer Contact routes
 Route::get("/userContact", [UserContactController::class, 'index'])->name('userContact.index');
+// send mail
+Route::post('/send-mail', [UserContactController::class, 'userToAdmin'])->name('user.to.admin');
+
 
 // Uaer Offer routes
 Route::get("/userOffer", [UserOfferController::class, 'index'])->name('userOffer.index');
 
 
-// payment
+
 // payment verify route
 Route::get("/payment/verify", [PaymentController::class, 'verifyPayment'])->name('khalti.verifyPayment');
 // payment store route
@@ -89,6 +97,9 @@ Route::post("/payment/store", [PaymentController::class, 'paymentStore'])->name(
 // nearest place map
 Route::get("/nearest-places", [UserHomeController::class, 'nearestPlace'])->name('user.map.index');
 Route::get("/nearest-places/{id}", [UserHomeController::class, 'nearestPlaceMap'])->name('user.map.show');
+
+
+
 
 
 
@@ -278,4 +289,9 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
     Route::get("/deleteOffer/{id}", [OfferController::class, 'deleteOffer'])->name('offer.delete');
     //Rout for updating Offer 
     Route::post("/updateOffer/{id}", [OfferController::class, 'updateOffer'])->name('offer.edit');
+
+
+
+    // admin mail route
+    Route::post("/mail/send", [AdminMailController::class, 'mailSend'])->name('mail.send');
 });

@@ -29,16 +29,16 @@
                                 <form  action="{{ route('service.store') }}" method="POST" enctype="multipart/form-data" class="row g-3">
                                     @csrf
                                     <div class="col-md-12 w=100">
-                                        <label class="form-label">Select Service Category</label>
-                                        <select name="service_type" class="single-select">
+                                        <label class="form-label">Select Service Category :</label>
+                                        <select name="service_type" class="btn btn-secondary dropdown-toggle" >
                                             @foreach ($serviceCategorys as $serviceCategory)
                                             <option value="{{ $serviceCategory-> id }}">{{ $serviceCategory -> Service_name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                     <div class="col-md-12 w=100">
-                                        <label class="form-label">Select Room</label>
-                                        <select name="room_id" class="single-select">
+                                        <label class="form-label">Select Room :</label>
+                                        <select name="room_id" class="btn btn-secondary dropdown-toggle" >
                                             @foreach ($rooms as $room)
                                             <option value="{{ $room-> id }}">{{ $room -> room_name }}</option>
                                             @endforeach

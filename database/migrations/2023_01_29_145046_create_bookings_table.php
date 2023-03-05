@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->date('checkIn');
             $table->date('checkOut');
-            $table->integer('noOfPeople');
+            $table->string('phone');
             $table->timestamps();
         });
     }

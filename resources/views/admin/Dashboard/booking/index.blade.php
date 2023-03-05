@@ -18,7 +18,7 @@
         <div class="card">
             <div class="card-body ">
                 <div class="d-flex justify-content-between align-items-center">
-                <h4 class="header-title">Manage Bookings</h4>
+                <h4 class="header-title">Bookings</h4>
                 
                 </div>
 
@@ -40,12 +40,31 @@
                                         <th>User ID</th>
                                         <th>Check In Date</th>
                                         <th>Check Out Date</th>
-                                        <th>No of people</th>
+                                        <th>Phone No</th>
                                         <th>Action</th>
                                     </tr>
-
                                     <tbody>
+                                        @for ($i = 0; $i < count($bookings); $i++)
+                                        @php
+                                            $booking = DB::table('users')
+                                            ->where('id', $bookings[$i]->user_id)
+                                            ->get();
+                                        @endphp                                        
                                         <tr>
+                                            <tr>
+                                                <td>{{ Str::limit($bookings[$i]->id)}}</td>
+                                                <td>{{ Str::limit($bookings[$i]->room_id)}}</td>
+                                                <td>{{$booking[0]->name}}</td>
+                                                <td>{{ Str::limit($bookings[$i]->checkIn)}}</td>
+                                                <td>{{ Str::limit($bookings[$i]->checkOut)}}</td>
+                                                <td>{{ Str::limit($bookings[$i]->phone)}}</td>
+                                                <td>
+                                                    <a href="{{ route('adminBooking.delete',$bookings[$i]->id )}}" class="action-icon" title="delete"><i class="mdi mdi-delete"></i></button></a>
+                                                </td>
+                                            </tr>
+                                        </tr>
+                                        @endfor
+                                        {{-- <tr>
                                             @foreach($bookings as $item)
                                             <tr>
                                                 <td>{{($item->id)}}</td>
@@ -53,13 +72,13 @@
                                                 <td>{{($item->user_id)}}</td>
                                                 <td>{{($item->checkIn)}}</td>
                                                 <td>{{($item->checkOut)}}</td>
-                                                <td>{{($item->noOfPeople)}}</td>
+                                                <td>{{($item->phone)}}</td>
                                                 <td>
                                                     <a href="{{ route('adminBooking.delete',$item->id )}}" class="action-icon" title="delete"><i class="mdi mdi-delete"></i></button></a>
                                                 </td>
                                             </tr>
                                             @endforeach
-                                        </tr>
+                                        </tr> --}}
                                         
                                     </tbody>
                         </div> <!-- end table-responsive-->                     

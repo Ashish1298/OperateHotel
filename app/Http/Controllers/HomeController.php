@@ -24,8 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $rooms = Room::all();
-        return view('user.home.index', compact('rooms'));
+        $rooms = Room::where('status',0)->get();
+        
+        return view('user.home.index',compact('rooms'));
     }
 
     public function adminHome()

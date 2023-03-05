@@ -238,6 +238,13 @@
                         </a>
                     </li>
 
+                    <li class="side-nav-item">
+                        <!-- Standard modal -->
+                        <a class="side-nav-link" data-bs-toggle="modal" data-bs-target="#standard-modal">
+                            <i class="uil-book-open"></i>
+                        Mail</a>
+                    </li>
+
                 </ul>
 
 
@@ -248,6 +255,36 @@
                 <!-- Sidebar -left -->
 
             </div>
+            <div id="standard-modal" class="modal fade" tabindex="-1" role="dialog"
+                aria-labelledby="standard-modalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="standard-modalLabel">Modal Heading</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-hidden="true"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="{{ route('mail.send') }}" method="POST" enctype="multipart/form-data"
+                                class="row g-3">
+                                @csrf
+                                <div class="col-md-12">
+                                    <label for="subject" class="form-label">Subject</label>
+                                    <input type="text" name="subject" class="form-control" id="subject"
+                                        required>
+                                </div>
+                                <div class="row-12">
+                                    <label for="message" class="form-label ">Message</label>
+                                    <textarea name="message" class="form-control" id="" cols="30" rows="5" required></textarea>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <button type="submit" class="btn btn-primary px-5">Send</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
             <!-- Left Sidebar End -->
 
             <div class="content-page">

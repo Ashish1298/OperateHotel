@@ -38,7 +38,7 @@
                             <table class="table table-striped table-centered">
                                 <thead>
                                     <tr>
-                                        <th>Service No</th>
+                                        <th>Service Name</th>
                                         <th>Room No</th>
                                         <th>Status</th>
                                         <th>Action</th>

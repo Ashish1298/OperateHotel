@@ -37,8 +37,8 @@
                                         <input type="file" class="form-control" id="inputGroupFile04" name="image" accept=".jpg') }}, .png') }}, image/jpeg, image/png" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
                                     </div>
                                     <div class="col-md-12 w=100">
-                                        <label class="form-label">Select Category</label>
-                                        <select name="category" class="single-select">
+                                        <label class="form-label">Select Category:</label>
+                                        <select name="category" class="btn btn-secondary dropdown-toggle" >
                                             @foreach ($categorys as $category)
                                             <option value="{{ $category-> id }}">{{ $category -> category_name }}</option  required>
                                             @endforeach
@@ -46,10 +46,10 @@
                                     </div>
                                     <div class="row-12">
                                         <label for="inputAddress" class="form-label ">Price</label>
-                                        <input type="number" name="price" class="form-control" id="price" required>
+                                        <input type="number" name="price" onchange="setTwoNumberDecimal"  step="0.000000001" class="form-control" id="price" required>
                                     </div>
                                     <div class="row-12">
-                                        <label for="inputAddress" class="form-label ">Description</label>
+                                        <label for="description" class="form-label ">Description</label>
                                         <textarea class="form-control" id="inputAddress" name="description" placeholder="Description..." rows="3"></textarea>
                                     </div>
                                     <div class="d-flex justify-content-center">

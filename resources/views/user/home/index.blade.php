@@ -40,9 +40,9 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <span>Select Room</span>
-                                    <select name="room_id" class="online_book single-select">
+                                    <select name="room_id" class="online_book single-select btn btn-secondary dropdown-toggle">
                                         @foreach ($rooms as $room)
-                                        <option class="date_cua" value="{{ $room->id }}">{{ $room ->room_name }}</option>
+                                       <option value="{{ $room->id }}"  class="date_cua" style="color: white; background-color:#ff0000;"> {{ $room->room_name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -57,24 +57,12 @@
                                     <input class="online_book" placeholder="dd/mm/yyyy" type="date" name="checkOut">
                                 </div>
                                 <div class="col-md-12">
-                                    <span>No Of People</span>
-                                    <select name="noOfPeople" placeholder ="Select Room" class="online_book single-select">
-                                        <option style="color: white; background-color:#ff0000;">1</option>
-                                        <option style="color: white; background-color:#ff0000;">2</option>
-                                        <option style="color: white; background-color:#ff0000;">3</option>
-                                        <option style="color: white; background-color:#ff0000;">4</option>
-                                        <option style="color: white; background-color:#ff0000;">5</option>
-                                        <option style="color: white; background-color:#ff0000;">6</option>
-                                        <option style="color: white; background-color:#ff0000;">7</option>
-                                        <option style="color: white; background-color:#ff0000;">8</option>
-                                        <option style="color: white; background-color:#ff0000;">9</option>
-                                        <option style="color: white; background-color:#ff0000;">10</option>
-                                    </select>
+                                    <span>Phone No</span>
+                                    <input type="text" class="online_book" pattern="98[0-9]{8}" maxlength="10" autocomplete="off" name="phone" required>
                                 </div>
                                 <div class="row-md-10" style="margin-left: 37%">
                                     <button type="submit" class="book_btn">Book Now</button>
                                 </div>
-                                
                             </div>
                         </form>
                         <div class="row-md-10 " style="margin-left: 0%" >

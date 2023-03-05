@@ -11,23 +11,42 @@
             </div>
         </div>
         <div class="row">
-            @foreach($foods as $item)
-            <div class="col-md-4 col-sm-6">
-                <div id="serv_hover" class="room">
-                    <div class="room_img">
-                        <figure><img src="{{asset('admin/images/food/'.$item->image)}}"></figure>
-                    </div>
-                    <div class="bed_room">
-                        <h3>{{ $item->food_name }}</h3>
-                        <h5>Price: {{ $item->price }}</h5>
-                    </div>
-                    <div class="row-md-10" style="margin-top: -8%">
-                        <button type="submit" class="book_btn">Order</button>
+        @foreach($foods as $item)
+        <form action="{{ route('userOrder.store', $item->id) }}" method="POST">
+            @csrf
+                <div class="col-md-4 col-sm-6 d-flex">
+                    <div id="serv_hover" class="room">
+                        <div class="room_img" style="height: 250px; width:360px">
+                            <figure><img src="{{asset('admin/images/food/'.$item->image)}}"></figure>
+                        </div>
+                        <div class="bed_room">
+                            <h3>{{ $item->food_name }}</h3>
+                            <h5> Price:{{ $item->price }}</h5>
+                        </div>
+                        <div class="col-md-12 w=100" style="matgin-top: -60%;">
+                            <label class="form-label">Quantity :</label>
+                            <select name="quantity" class="btn btn-secondary dropdown-toggle" style="matgin-top: -60%;" >
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                            </select>
+                        </div>
+                        <div class="row-md-10" style="margin-top: 5%">
+                            <button type="submit" class="book_btn">Order</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            @endforeach
-        </div>
+            
+        </form>
+        @endforeach
+    </div>
     </div>
 </div>
 @endsection

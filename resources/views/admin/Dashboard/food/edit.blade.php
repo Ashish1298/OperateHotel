@@ -38,7 +38,7 @@
                                     </div>
                                     <div class="row-12">
                                         <label for="inputAddress" class="form-label ">Price</label>
-                                        <input type="number" name="price" class="form-control" value="{{ $food->description }}" id="price" required>
+                                        <input type="number" name="price" onchange="setTwoNumberDecimal"  step="0.000000001" class="form-control" id="price" required>
                                     </div>
                                     <div class="d-flex justify-content-center">
                                         <button type="submit" class="btn btn-primary px-5">Update</button>

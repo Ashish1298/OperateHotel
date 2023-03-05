@@ -48,7 +48,7 @@ class PaymentController extends Controller
             toastr()->success('Payment created successfully!');
             return redirect()->route('payment.index');
         } catch (Exception $exception) {
-            dd($exception);
+
             toastr()->error('Error While Creating Payment!');
             return redirect()->back()->with('error', 'This is the error' . $exception);
         }
@@ -82,7 +82,7 @@ class PaymentController extends Controller
             toastr()->success('Payment Updated successfully!');
             return redirect()->route('payment.index');
         } catch (Exception $exception) {
-            dd($exception);
+
             toastr()->error('Error While Updating Payment!');
             return redirect()->back()->with('error', 'This is the error' . $exception);
         }

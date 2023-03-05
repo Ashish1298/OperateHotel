@@ -11,11 +11,11 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->integer('quantity');
-            $table->unsignedBigInteger('food_id')->nullable();
+            $table->unsignedBigInteger('food_id');
             $table->foreign('food_id')->references('id')->on('food');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('quantity');
             $table->string('status')->default(0)->comment('0=inactive, 1=active');
             $table->timestamps();
         });

@@ -29,16 +29,16 @@
                                 <form  action="{{ route('order.edit', $orders->id) }}" method="POST" enctype="multipart/form-data" class="row g-3">
                                     @csrf
                                     <div class="col-md-12 w=100">
-                                        <label class="form-label">Select Food</label>
-                                        <select name="food_id" class="single-select">
+                                        <label class="form-label">Select Food :</label>
+                                        <select name="food_id" class="btn btn-secondary dropdown-toggle" >
                                             @foreach ($foods as $food)
                                             <option value="{{ $food -> id }}" @if ($orders -> food_id == $food-> id ) selected @endif>{{ $food -> food_name }}</option>
                                             @endforeach  
                                         </select>
                                     </div>
                                     <div class="col-md-12">
-                                        <label for="payment" class="form-label">Quantity</label>
-                                        <select name="quantity" class="single-select">
+                                        <label for="payment" class="form-label">Quantity :</label>
+                                        <select name="quantity" class="btn btn-secondary dropdown-toggle" >
                                             <option>1</option>
                                             <option>2</option>
                                             <option>3</option>

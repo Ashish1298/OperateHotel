@@ -22,14 +22,14 @@ class BookingController extends Controller
                 'checkIn'=> 'required',
                 'checkOut'=> 'required',
                 'room_id'=> 'required',
-                'noOfPeople'=> 'required',
+                'phone'=> 'required',
 
             ]);
             $bookings = new Booking();
             $bookings->checkIn = $request-> checkIn;
             $bookings->checkOut = $request-> checkOut;
             $bookings->room_id = $request->room_id;
-            $bookings->noOfPeople = $request->noOfPeople;
+            $bookings->phone = $request->phone;
             $bookings->user_id = auth()->user()->id;
             $bookings->save();
 

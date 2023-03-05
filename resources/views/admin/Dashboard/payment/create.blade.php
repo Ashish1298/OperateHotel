@@ -29,16 +29,16 @@
                                 <form  action="{{ route('payment.store') }}" method="POST" enctype="multipart/form-data" class="row g-3">
                                     @csrf
                                     <div class="col-md-12 w=100">
-                                        <label class="form-label">Select Room</label>
-                                        <select name="room_id" class="single-select">
+                                        <label class="form-label">Select Room :</label>
+                                        <select name="room_id" class="btn btn-secondary dropdown-toggle" >
                                             @foreach ($rooms as $room)
                                             <option value="{{ $room-> id }}">{{ $room -> room_name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                     <div class="col-md-12 w=100">
-                                        <label class="form-label">Select Payment Method</label>
-                                        <select name="payment_method_id" class="single-select">
+                                        <label class="form-label">Select Payment Method :</label>
+                                        <select name="payment_method_id" class="btn btn-secondary dropdown-toggle" >
                                             @foreach ($paymentMethods as $paymentMethod)
                                             <option value="{{ $paymentMethod-> id }}">{{ $paymentMethod -> payment_method }}</option>
                                             @endforeach
@@ -46,7 +46,7 @@
                                     </div>
                                     <div class="col-md-12">
                                         <label for="payment" class="form-label">Total Payment</label>
-                                        <input type="number" name="total_payment" class="form-control" id="total_payment" required>
+                                        <input type="number" name="total_payment" onchange="setTwoNumberDecimal"  step="0.000000001" class="form-control" id="total_payment" required>
                                     </div>
                                     <div class="d-flex justify-content-center">
                                         <button type="submit" class="btn btn-primary px-5">Create</button>

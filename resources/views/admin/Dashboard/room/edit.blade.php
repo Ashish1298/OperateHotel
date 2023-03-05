@@ -37,8 +37,8 @@
                                         <input type="file" class="form-control" id="inputGroupFile04" name="image" accept=".jpg') }}, .png') }}, image/jpeg, image/png" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
                                     </div>
                                     <div class="col-md-12 w=100">
-                                        <label class="form-label">Select Category</label>
-                                        <select name="category" class="single-select">
+                                        <label class="form-label">Select Category:</label>
+                                        <select name="category" class="btn btn-secondary dropdown-toggle" >
                                             @foreach ($categorys as $category)
 
                                             <option value="{{ $category -> id }}" @if ($room->category == $category->id) selected @endif>{{ $category -> category_name }}</option>
@@ -47,7 +47,7 @@
                                     </div>
                                     <div class="row-12">
                                         <label for="inputAddress" class="form-label ">Price</label>
-                                        <input type="number" name="price" class="form-control" value="{{ $room->description }}" id="price" required>
+                                        <input type="number" name="price" class="form-control" onchange="setTwoNumberDecimal"  step="0.000000001" id="price" required>
                                     </div>
                                     <div class="row-12">
                                         <label for="inputAddress" class="form-label ">Description</label>

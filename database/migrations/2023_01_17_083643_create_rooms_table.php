@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreign('category')->references('id')->on('room_categories');
             $table->double('price');
             $table->text('description');
-            $table->string('status')->default(0)->comment('0=inactive, 1=active');
+            $table->boolean('status')->default(0)->comment('0=available, 1=booked');
             $table->timestamps();
         });
     }

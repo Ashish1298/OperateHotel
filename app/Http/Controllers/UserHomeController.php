@@ -17,7 +17,7 @@ class UserHomeController extends Controller
     
     public function index()
     {
-        $rooms = Room::all();
+        $rooms = Room::where('status',0)->get();
         return view('user.home.index',compact('rooms'));
     }
 
@@ -29,22 +29,25 @@ class UserHomeController extends Controller
                 'checkIn'=> 'required',
                 'checkOut'=> 'required',
                 'room_id'=> 'required',
-                'noOfPeople'=> 'required',
+                'phone'=> 'required',
 
             ]);
             $bookings = new Booking();
             $bookings->checkIn = $request-> checkIn;
             $bookings->checkOut = $request-> checkOut;
             $bookings->room_id = $request->room_id;
-            $bookings->noOfPeople = $request->noOfPeople;
+            $bookings->phone = $request->phone;
             $bookings->user_id = auth()->user()->id;
+            $room = Room::find($request->room_id);
+            $room->status = !$room->status;
+            $room->update();
             $bookings->save();
 
             toastr()->success('Booking Done Successfully!');
             return redirect()->back();
 
         } catch (Exception $exception) {
-
+            dd($exception);
             toastr()->error('Error While Booking Room !');
             return redirect()->back()->with('error', 'This is the error' . $exception);
         }

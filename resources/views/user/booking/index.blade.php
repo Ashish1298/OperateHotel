@@ -190,7 +190,6 @@
                             <th>User ID</th>
                             <th>Check In Date</th>
                             <th>Check Out Date</th>
-                            <th>No of people</th>
                             <th>Action</th>
                         </tr>
 
@@ -203,7 +202,6 @@
                             <td>{{ $item->user_id }}</td>
                             <td>{{ $item->checkIn }}</td>
                             <td>{{ $item->checkOut }}</td>
-                            <td>{{ $item->noOfPeople }}</td>
                             <td>
                                 <button id="payment-button" onclick="payment({{ $item->id }})">Pay with
                                     Khalti</button>
