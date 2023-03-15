@@ -147,6 +147,9 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ route('userContact.index') }}">contact</a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('userContact.index') }}">Service</a>
+                                    </li>
                                     <li class="dropdown profile-menu-head ">
                                         <a href="{{route('userProfile.index')}}" class="nav-link dropbtn" href="" style="border-bottom: none;">
                                             <img src="{{ asset('admin/images/user/'.Auth::user()->image) }}" alt="" style="height:45px; width:50px; left:0; margin-top:-10px " class="rounded-circle">

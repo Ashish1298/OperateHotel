@@ -59,6 +59,7 @@ Route::post("/storeBooking", [UserHomeController::class, 'storeBooking'])->name(
 // Show user bookings
 Route::get("/showBooking", [UserHomeController::class, 'showBooking'])->name('booking.show');
 
+
 //Delete user bookings 
 Route::get("/deleteBooking/{id}", [UserHomeController::class, 'deleteBooking'])->name('booking.delete');
 
@@ -75,6 +76,12 @@ Route::get("/userGallery", [UserGalleryController::class, 'index'])->name('userG
 Route::get("/userOrder", [UserOrderController::class, 'index'])->name('userOrder.index');
 // Uaer Order routes
 Route::post("/userOrderFood/{id}", [UserOrderController::class, 'store'])->name('userOrder.store');
+
+// Show user Order
+Route::get("/showUserOrder", [UserOrderController::class, 'showOrder'])->name('userOrder.show');
+
+// Delete user Order
+Route::get("/showOrder", [UserOrderController::class, 'deleteOrder'])->name('userOrder.delete');
 
 // Uaer Contact routes
 Route::get("/userContact", [UserContactController::class, 'index'])->name('userContact.index');

@@ -28,19 +28,6 @@
 <body class="loading" data-layout="detached"
     data-layout-config='{"leftSidebarCondensed":false,"darkMode":false, "showRightSidebarOnStart": true}'>
 
-    <!-- Topbar Start -->
-    {{-- <div class="navbar-custom topnav-navbar topnav-navbar">
-            <div class="container-fluid" id="title">
-
-                <!-- LOGO -->
-                <a href="index.html"  class="topnav-logo" style="display:flex; align-items:center">
-                    <span class="topnav-logo-lg">
-                        <img src="{{ asset('admin/images/logo.png') }}" alt="" height="50">
-                    </span>
-                    <span class="" style="color: black; font-size:35px; font-weight:700">Operate Hotel</span>
-                </a>
-            </div>
-        </div> --}}
 
     <div class="navbar-custom topnav-navbar topnav-navbar">
         <div class="container-fluid">
@@ -68,11 +55,7 @@
                     </div>
                 </li>
 
-                <li class="notification-list">
-                    <a class="nav-link end-bar-toggle" href="javascript: void(0);">
-                        <i class="dripicons-gear noti-icon"></i>
-                    </a>
-                </li>
+                
 
                 <li class="dropdown notification-list">
                     <a class="nav-link dropdown-toggle nav-user arrow-none me-0" data-bs-toggle="dropdown"
@@ -242,7 +225,8 @@
                         <!-- Standard modal -->
                         <a class="side-nav-link" data-bs-toggle="modal" data-bs-target="#standard-modal">
                             <i class="uil-book-open"></i>
-                        Mail</a>
+                            <span>Mail</span>
+                    </a>
                     </li>
 
                 </ul>

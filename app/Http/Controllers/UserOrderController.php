@@ -7,7 +7,6 @@ use App\Models\food;
 use Exception;
 use App\Models\User;
 use App\Models\Order;
-use App\Models\Room;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
@@ -46,5 +45,19 @@ class UserOrderController extends Controller
             toastr()->error('Error While Ordering Food!');
             return redirect()->back()->with('error', 'This is the error' . $exception);
         }
+    }
+
+    public function showOrder()
+    {
+        $orders = Order::all();
+        return view('user.order.show',compact('orders'));
+    }
+
+    public function deleteOrder($id)
+    {
+        $data = Order::find($id);
+        $data->delete();
+        toastr()->success('Order Deleted Successfully!!!');
+        return redirect()->back();
     }
 }

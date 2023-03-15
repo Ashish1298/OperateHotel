@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->integer('quantity');
-            $table->string('status')->default(0)->comment('0=inactive, 1=active');
+            $table->boolean('status')->default(0)->comment('0=not_delivered, 1=delivered');
             $table->timestamps();
         });
     }

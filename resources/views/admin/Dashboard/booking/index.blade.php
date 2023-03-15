@@ -37,7 +37,7 @@
                                     <tr>
                                         <th>Booking ID</th>
                                         <th>Room ID</th>
-                                        <th>User ID</th>
+                                        <th>User Name</th>
                                         <th>Check In Date</th>
                                         <th>Check Out Date</th>
                                         <th>Phone No</th>
@@ -64,22 +64,6 @@
                                             </tr>
                                         </tr>
                                         @endfor
-                                        {{-- <tr>
-                                            @foreach($bookings as $item)
-                                            <tr>
-                                                <td>{{($item->id)}}</td>
-                                                <td>{{($item->room_id)}}</td>
-                                                <td>{{($item->user_id)}}</td>
-                                                <td>{{($item->checkIn)}}</td>
-                                                <td>{{($item->checkOut)}}</td>
-                                                <td>{{($item->phone)}}</td>
-                                                <td>
-                                                    <a href="{{ route('adminBooking.delete',$item->id )}}" class="action-icon" title="delete"><i class="mdi mdi-delete"></i></button></a>
-                                                </td>
-                                            </tr>
-                                            @endforeach
-                                        </tr> --}}
-                                        
                                     </tbody>
                         </div> <!-- end table-responsive-->                     
                     </div> <!-- end preview-->

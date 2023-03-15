@@ -42,7 +42,6 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
 
     <style>
-
         .dropbtn {
             background-color: #ffffff;
             width: 40px;
@@ -87,9 +86,10 @@
         }
 
         .footer {
-            position:fixed;bottom:0;
-            width:100%;
-            display:block;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: block;
         }
 
         @media only screen and (min-width: 600px) {
@@ -117,12 +117,13 @@
                 <div class="row">
                     <div class="col-xl-3 col logo_section">
                         <div class="" style="display: block;">
-                            <a href="{{ route('home') }}"><img src="{{ asset('admin/images/logo.png') }}" alt="Company Logo"  style="height:70px; width:75px;  margin-top:-5px " /></a>
+                            <a><img src="{{ asset('admin/images/logo.png') }}" alt="Company Logo"
+                                    style="height:70px; width:75px;  margin-top:-5px margin-left:10%; margin-rightt:10%" /></a>
                         </div>
                     </div>
                     <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
                         <nav class="navigation navbar navbar-expand-md navbar-dark ">
-                            
+
                             <div class="collapse navbar-collapse" id="navbarsExample04">
                                 <ul class="navbar-nav mr-auto">
                                     <li class="nav-item">
@@ -149,18 +150,21 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ route('userContact.index') }}">contact</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('userContact.index') }}">Service</a>
-                                    </li>
                                     <li class="dropdown profile-menu-head ">
-                                        <a href="{{route('userProfile.index')}}" class="nav-link dropbtn" href="" style="border-bottom: none;">
-                                            <img src="{{ asset('admin/images/user/'.Auth::user()->image) }}" alt="" style="height:45px; width:50px; left:0; margin-top:-10px " class="rounded-circle">
+                                        <a href="{{ route('userProfile.index') }}" class="nav-link dropbtn"
+                                            href="" style="border-bottom: none;">
+                                            <img src="{{ asset('admin/images/user/' . Auth::user()->image) }}"
+                                                alt=""
+                                                style="height:45px; width:50px; left:0; margin-top:-10px "
+                                                class="rounded-circle">
                                         </a>
                                         <div class="dropdown-content" style="left:0;">
-                                            <a href="{{route('userProfile.index')}}">My Profile</a>
+                                            <a href="{{ route('userProfile.index') }}">My Profile</a>
                                             <a href="#">Link 2</a>
-                                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">logout</a>
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            <a href="{{ route('logout') }}"
+                                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">logout</a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                class="d-none">
                                                 @csrf
                                             </form>
                                         </div>
@@ -173,8 +177,46 @@
             </div>
         </div>
     </header>
-    <div class="content-page">
-        @yield('content')
+
+    <div class="tab-content" style="margin-top: 20px; margin-right:50px; margin-left:50px;">
+        <div class="tab-pane show active" id="striped-rows-preview">
+            <h1>YOUR BOOKINGS</h1>
+            <div class="table-responsive">
+                <table class="table table-striped table-centered">
+                    <thead>
+                        <tr>
+                            <th>Food</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Amount</th>
+                            <th>User ID</th>
+                            <th>Action</th>
+                        </tr>
+                    <tbody>
+                        @for ($i = 0; $i < count($orders); $i++)
+                            @php
+                                $order = DB::table('food')
+                                ->where('id', $orders[$i]->food_id)
+                                ->get();
+                            @endphp                                        
+                        <tr>
+                            <tr>
+                                <td>{{$order[0]->food_name}}</td>
+                                <td>{{$order[0]->price}}</td>
+                                <td>{{$orders[$i]->quantity}}</td>
+                                <td>{{$order[0]->price * $orders[$i]->quantity}}</td>
+                                <td>{{$orders[$i]->user_id}}</td>
+                                <td>
+                                    <button id="payment-button" onclick="payment({{ $orders[$i]->id }})">Pay withKhalti</button>
+                                    <a href="{{ route('order.delete',$orders[$i]->id )}}" class="action-icon" title="delete"><i class="mdi mdi-delete"></i></button></a>
+                                </td>
+                            </tr>
+                        </tr>
+                        @endfor
+                    </tbody>
+            </div> <!-- end table-responsive-->
+        </div> <!-- end preview-->
+
     </div>
     <!--  footer -->
     <!-- end footer -->
@@ -199,7 +241,88 @@
     <!-- sidebar -->
     <script src="{{ asset('user/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
     <script src="{{ asset('user/js/custom.js') }}"></script>
+    <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+
+    <script src="https://khalti.s3.ap-south-1.amazonaws.com/KPG/dist/2020.12.17.0.0.0/khalti-checkout.iffe.js"></script>
+
+    <script>
+        var config = {
+            // replace the publicKey with yours
+            "publicKey": "{{ config('app.khalti_public_key') }}",
+            "productIdentity": "1234567890",
+            "productName": "Dragon",
+            "productUrl": "http://gameofthrones.wikia.com/wiki/Dragons",
+            "paymentPreference": [
+                "KHALTI",
+                "EBANKING",
+                "MOBILE_BANKING",
+                "CONNECT_IPS",
+                "SCT",
+            ],
+            "eventHandler": {
+                onSuccess(payload) {
+                    // hit merchant api for initiating verfication
+                    $.ajax({
+                        type: "get",
+                        url: "{{ route('khalti.verifyPayment') }}",
+                        data: {
+                            amount: payload.amount,
+                            token: payload.token,
+                            product_identity: payload.product_identity,
+                            "_token": "{{ csrf_token() }}"
+                        },
+                        success: function(res) {
+                            console.log(res)
+                            $.ajax({
+                                url: "/payment/store",
+                                type: "post",
+                                data: {
+                                    response: res,
+                                    "_token": "{{ csrf_token() }}"
+                                },
+                                success: function(data) {
+                                    console.log(data)
+                                },
+                                error: function(e) {
+                                    console.log(e);
+                                }
+                            })
+                        },
+                        error: function(e) {
+                            console.log(e);
+                        }
+                    })
+
+                    console.log(payload);
+
+                },
+                onError(error) {
+                    console.log(error);
+                },
+                onClose() {
+                    console.log('widget is closing');
+                }
+            }
+        };
+
+        var checkout = new KhaltiCheckout(config);
+        // var btn = document.getElementById("payment-button");
+        // btn.onclick = function() {
+        //     // minimum transaction amount must be 10, i.e 1000 in paisa.
+        //     checkout.show({
+        //         amount: 1000
+        //     });
+        // }
+
+        function payment(id) {
+            checkout.show({
+                amount: 1000,
+                productIdentity: id
+            })
+        }
+    </script>
+
     {!! Toastr::message() !!}
 </body>
 

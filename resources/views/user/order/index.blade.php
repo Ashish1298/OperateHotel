@@ -43,9 +43,13 @@
                         </div>
                     </div>
                 </div>
-            
         </form>
         @endforeach
+        
+    </div>
+    <div class="row-md-10 " style="margin-left: 0%" >
+        {{-- <button href="{{route('booking.show')}}" class="book_btn">View Book</button> --}}
+        <a href="{{route('userOrder.show')}}" class="book_btn"><i class='bx bxs-plus-square' style="margin-left: 15%"></i>View Booking</a>
     </div>
     </div>
 </div>

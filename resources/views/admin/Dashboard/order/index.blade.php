@@ -39,10 +39,12 @@
                                 <thead>
                                     <tr>
                                         <th>Food</th>
+                                        <th>Price</th>
                                         <th>Quantity</th>
+                                        <th>Amount</th>
                                         <th>User ID</th>
-                                        <th>Action</th>
                                         <th>Status</th>
+                                        <th>Action</th>
                                     </tr>
                                     <tbody>
                                         @for ($i = 0; $i < count($orders); $i++)
@@ -54,8 +56,11 @@
                                         <tr>
                                             <tr>
                                                 <td>{{$order[0]->food_name}}</td>
+                                                <td>{{$order[0]->price}}</td>
                                                 <td>{{$orders[$i]->quantity}}</td>
+                                                <td>{{$order[0]->price * $orders[$i]->quantity}}</td>
                                                 <td>{{$orders[$i]->user_id}}</td>
+                                                <td>{{$orders[$i]->status}}</td>
                                                 <td>
                                                     <a href="{{ route('order.show',$orders[$i]->id )}}" class="action-icon" title="edit"><i class="mdi mdi-pencil"></i></button></a>
                                                     <a href="{{ route('order.delete',$orders[$i]->id )}}" class="action-icon" title="delete"><i class="mdi mdi-delete"></i></button></a>
