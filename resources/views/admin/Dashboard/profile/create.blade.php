@@ -7,7 +7,6 @@
                 <div class="card-body d-flex align-items-center">
                 <h4 class="header-title">Edit Profile</h4>
                 </div>
-
                 <ul class="nav nav-tabs nav-bordered mb-3">
                     <li class="nav-item">
                         <a href="#striped-rows-preview" data-bs-toggle="tab" aria-expanded="false" class="nav-link active">

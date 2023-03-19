@@ -1,3 +1,17 @@
+{{-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operate Hotel</title>
+</head>
+<body>
+    <h1>This is Staff Dashboard</h1>
+</body>
+</html> --}}
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,13 +83,6 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated topbar-dropdown-menu profile-dropdown"
                         aria-labelledby="topbar-userdrop">
-
-
-                        <!-- item-->
-                        <a href="{{ route('profile.index') }}" class="dropdown-item notify-item">
-                            <i class="mdi mdi-account-circle me-1"></i>
-                            <span>My Account</span>
-                        </a>
                         <!-- item-->
                         <a class="dropdown-item notify-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -115,105 +122,10 @@
                     <li class="side-nav-item">
                         <a href="{{ route('user.index') }}" class="side-nav-link">
                             <i class="dripicons-user-group"></i>
-                            <span> Manage User </span>
+                            <span> Orders </span>
                         </a>
                     </li>
-
-                    <li class="side-nav-item">
-                        <a href="{{ route('roomCategory.index') }}" class="side-nav-link">
-                            <i class="uil uil-layers-alt"></i>
-                            <span> Room Category </span>
-                        </a>
-                    </li>
-
-                    <li class="side-nav-item">
-                        <a href="{{ route('room.index') }}" class="side-nav-link">
-                            <i class="uil uil-bed-double"></i>
-                            <span> Room </span>
-                        </a>
-                    </li>
-
-
-                    <li class="side-nav-item">
-                        <a href="{{ route('food.index') }}" class="side-nav-link">
-                            <i class="uil uil-food"></i>
-                            <span> Food </span>
-                        </a>
-                    </li>
-
-                    <li class="side-nav-item">
-                        <a href="{{ route('serviceCategory.index') }}" class="side-nav-link">
-                            <i class="uil uil-servers"></i>
-                            <span> Service Category</span>
-                        </a>
-                    </li>
-
-                    <li class="side-nav-item">
-                        <a href="{{ route('service.index') }}" class="side-nav-link">
-                            <i class=" uil-server"></i>
-                            <span> Service </span>
-                        </a>
-                    </li>
-
-                    <li class="side-nav-item">
-                        <a href="{{ route('map.index') }}" class="side-nav-link">
-                            <i class="uil-map-marker-shield"></i>
-                            <span> Map </span>
-                        </a>
-                    </li>
-
-                    <li class="side-nav-item">
-                        <a href="{{ route('paymentMethod.index') }}" class="side-nav-link">
-                            <i class="uil-usd-square"></i>
-                            <span> Payment Method </span>
-                        </a>
-                    </li>
-
-                    <li class="side-nav-item">
-                        <a href="{{ route('payment.index') }}" class="side-nav-link">
-                            <i class="uil-dollar-alt"></i>
-                            <span> Payment </span>
-                        </a>
-                    </li>
-
-                    <li class="side-nav-item">
-                        <a href="{{ route('order.index') }}" class="side-nav-link">
-                            <i class="uil-database-alt"></i>
-                            <span> Order </span>
-                        </a>
-                    </li>
-
-                    <li class="side-nav-item">
-                        <a href="{{ route('adminBooking.index') }}" class="side-nav-link">
-                            <i class="uil-book-open"></i>
-                            <span> Booking </span>
-                        </a>
-                    </li>
-                    <li class="side-nav-item">
-                        <a href="{{ route('offer.index') }}" class="side-nav-link">
-                            <i class="mdi mdi-offer"></i>
-                            <span> Offer </span>
-                        </a>
-                    </li>
-
-                    <li class="side-nav-item">
-                        <a href="{{ route('about.index') }}" class="side-nav-link">
-                            <i class="uil uil-sort-amount-up"></i>
-                            <span> About Page Update </span>
-                        </a>
-                    </li>
-
-                    <li class="side-nav-item">
-                        <!-- Standard modal -->
-                        <a class="side-nav-link" data-bs-toggle="modal" data-bs-target="#standard-modal">
-                            <i class="uil uil-fast-mail"></i>
-                            <span>Mail</span>
-                    </a>
-                    </li>
-
                 </ul>
-
-
                 <!-- end Help Box -->
                 <!-- End Sidebar -->
 

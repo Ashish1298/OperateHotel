@@ -7,7 +7,7 @@
                 <div class="titlepage">
                     <h2>About Us</h2>
                     <p>{{ ($abouts->description) }}</p>
-                    <a class="read_more" href="Javascript:void(0)"> Read More</a>
+                    
                 </div>
             </div>
             <div class="col-md-7">

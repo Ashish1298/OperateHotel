@@ -213,6 +213,8 @@ return [
     | the aliases are "lazy" loaded so they don't hinder performance.
     |
     */
+    'Toastr' => Brian2694\Toastr\Facades\Toastr::class,
+
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,

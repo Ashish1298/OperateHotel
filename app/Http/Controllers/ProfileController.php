@@ -44,8 +44,8 @@ class ProfileController extends Controller
                 $file->move(public_path('admin/images/user/'), $filename);
                 $user-> image = $filename;
             }
-            $user->bio = $request-> bio;
-            $user->name = $request-> name;
+            $user->bio = $request->bio;
+            $user->name = $request->name;
             $user->phone_number = $request->phone_number;
             $user->dateOfBirth = $request->dateOfBirth;
             
@@ -55,7 +55,7 @@ class ProfileController extends Controller
             return redirect()->route('profile.index');
 
         } catch (Exception $exception) {
-
+            dd($exception);
             toastr()->error('Error While Editing Profile !');
             return redirect()->back()->with('error', 'This is the error' . $exception);
         }

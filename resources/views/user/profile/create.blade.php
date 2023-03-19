@@ -17,7 +17,7 @@
             </div>
             <div class="row-12">
                 <label for="inputAddress" class="form-label ">Phone Number</label>
-                <input type="number" value="{{ Auth::user()->phone_number }}" name="phone_number" class="form-control" id="price" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
+                <input value="{{ Auth::user()->phone_number }}" name="phone_number" class="form-control" id="price" pattern="98[0-9]{8}" maxlength="10" autocomplete="off" required>
             </div>
             <div class="row-12">
                 <label for="inputAddress" class="form-label ">Name</label>

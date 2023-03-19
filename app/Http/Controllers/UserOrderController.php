@@ -37,6 +37,7 @@ class UserOrderController extends Controller
             $order->user_id = auth()->user()->id;
             $order->save();
 
+            
             toastr()->success('Order Done successfully!');
             return redirect()->back();
 

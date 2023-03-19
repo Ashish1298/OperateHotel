@@ -27,10 +27,8 @@ use App\Http\Controllers\UserOrderController;
 use App\Http\Controllers\UserContactController;
 use App\Http\Controllers\UserOfferController;
 use App\Http\Controllers\OfferController;
-
-
-
-
+use App\Http\Controllers\ManageUserController;
+use App\Http\Controllers\StaffController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -40,7 +38,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/admin/home', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
-
 
 
 // Route for user home
@@ -93,7 +90,6 @@ Route::post('/send-mail', [UserContactController::class, 'userToAdmin'])->name('
 Route::get("/userOffer", [UserOfferController::class, 'index'])->name('userOffer.index');
 
 
-
 // payment verify route
 Route::get("/payment/verify", [PaymentController::class, 'verifyPayment'])->name('khalti.verifyPayment');
 // payment store route
@@ -104,13 +100,6 @@ Route::post("/payment/store", [PaymentController::class, 'paymentStore'])->name(
 // nearest place map
 Route::get("/nearest-places", [UserHomeController::class, 'nearestPlace'])->name('user.map.index');
 Route::get("/nearest-places/{id}", [UserHomeController::class, 'nearestPlaceMap'])->name('user.map.show');
-
-
-
-
-
-
-
 
 // //route for room category index
 Route::group(['middleware' => ['auth', 'is_admin']], function () {
@@ -297,8 +286,21 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
     //Rout for updating Offer 
     Route::post("/updateOffer/{id}", [OfferController::class, 'updateOffer'])->name('offer.edit');
 
+    // admin manage user  route
+    Route::get("/manageUser", [ManageUserController::class, 'index'])->name('user.index');
 
+
+    Route::get("/deleteUser", [ManageUserController::class, 'delete'])->name('delete.index');
 
     // admin mail route
     Route::post("/mail/send", [AdminMailController::class, 'mailSend'])->name('mail.send');
+
+    // make user to staff user 
+    Route::get("/user/make-staff/{id}", [ManageUserController::class, 'makeStaff'])->name('user.makeStaff');
+});
+
+Route::group(['middleware' => ['auth', 'staff']], function () {
+
+    // staff dashboard
+    Route::get("/staff/dashboard", [StaffController::class, 'index'])->name('staff.dashboard');
 });

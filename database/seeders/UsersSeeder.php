@@ -34,5 +34,12 @@ class UsersSeeder extends Seeder
             'is_admin'=> 0,
             'password'=> Hash::make('password')
         ]);
+        
+        DB::table('users') -> insert([
+            'name'=> 'Staff',
+            'email'=>'staff@gmail.com',
+            'isStaff'=> 1,
+            'password'=> Hash::make('password')
+        ]);
     }
 }

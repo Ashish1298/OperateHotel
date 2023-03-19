@@ -30,7 +30,7 @@
                                     @csrf
                                     <div class="col-md-12">
                                         <label for="inputName" class="form-label">Name</label>
-                                        <input type="text" name="room_name" class="form-control" id="inputName" >
+                                        <input type="text" name="room_name" class="form-control" id="inputName" required >
                                     </div>
                                     <div class="col-md-12">
                                         <label for="inputImage" class="form-label">Image</label>

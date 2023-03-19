@@ -72,7 +72,6 @@
 
                             <p class="text-muted"><strong>Email :</strong> <span class="ms-2">{{ Auth::user()->email}}</span></p>
                             <p class="text-muted"><strong>Date of Birth :</strong> <span class="ms-2">{{ Auth::user()->dateOfBirth}}</span></p>
-
                         </div>
                     </div>
                 </div>
