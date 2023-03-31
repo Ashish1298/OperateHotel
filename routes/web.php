@@ -89,13 +89,13 @@ Route::post('/send-mail', [UserContactController::class, 'userToAdmin'])->name('
 // Uaer Offer routes
 Route::get("/userOffer", [UserOfferController::class, 'index'])->name('userOffer.index');
 
-
 // payment verify route
 Route::get("/payment/verify", [PaymentController::class, 'verifyPayment'])->name('khalti.verifyPayment');
 // payment store route
 Route::post("/payment/store", [PaymentController::class, 'paymentStore'])->name('userPayment.store');
 
-
+// payment store route
+Route::get("/userServices", [ServiceController::class, 'userService'])->name('userService.index');
 
 // nearest place map
 Route::get("/nearest-places", [UserHomeController::class, 'nearestPlace'])->name('user.map.index');
@@ -286,6 +286,8 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
     //Rout for updating Offer 
     Route::post("/updateOffer/{id}", [OfferController::class, 'updateOffer'])->name('offer.edit');
 
+
+    
     // admin manage user  route
     Route::get("/manageUser", [ManageUserController::class, 'index'])->name('user.index');
 
@@ -303,4 +305,6 @@ Route::group(['middleware' => ['auth', 'staff']], function () {
 
     // staff dashboard
     Route::get("/staff/dashboard", [StaffController::class, 'index'])->name('staff.dashboard');
+    
+ 
 });

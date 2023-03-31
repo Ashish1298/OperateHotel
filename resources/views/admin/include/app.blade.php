@@ -77,8 +77,7 @@
                             <span>My Account</span>
                         </a>
                         <!-- item-->
-                        <a class="dropdown-item notify-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <a class="dropdown-item notify-item" href="{{ route('logout') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <i class="mdi mdi-lock-outline me-1"></i>
                             <span>Logout</span>
                         </a>

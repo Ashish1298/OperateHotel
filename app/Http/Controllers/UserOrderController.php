@@ -28,12 +28,9 @@ class UserOrderController extends Controller
                 'quantity'=> 'required',
             ]);
             $foods = Food::find($id);
-            // dd($request);
             $order = new Order();
             $order->quantity = $request->quantity;
             $order->food_id = $foods->id;
-            // $order->price = $request->price;
-            // $order->total_amount = $request->price * $request-> quantity;
             $order->user_id = auth()->user()->id;
             $order->save();
 

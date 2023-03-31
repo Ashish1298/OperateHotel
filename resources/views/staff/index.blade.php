@@ -47,7 +47,7 @@
         <div class="container-fluid">
 
             <!-- LOGO -->
-            <a href="{{ route('admin.home') }}" class="topnav-logo" style="display:flex; align-items:center">
+            <a href="{{ route('staff.dashboard') }}" class="topnav-logo" style="display:flex; align-items:center">
                 <span class="topnav-logo-lg">
                     <img src="{{ asset('admin/images/logo.png') }}" alt="Company Logo" height="50">
                 </span>
@@ -105,7 +105,7 @@
     <!-- end Topbar -->
 
     <!-- Start Content-->
-    <div class="container-fluid">
+    {{-- <div class="container-fluid">
 
         <!-- Begin page -->
         <div class="wrapper">
@@ -171,8 +171,47 @@
             <!-- content-page -->
 
         </div> <!-- end wrapper-->
-    </div>
+    </div> --}}
     <!-- END Container -->
+    <div class="tab-content" style="margin-top: 2%;">
+        <div class="tab-pane show active" id="striped-rows-preview" >
+            <div class="table-responsive"style="margin-right: 5%; margin-right:5%;">
+                <table class="table table-striped table-centered" >
+                    <thead>
+                        <tr>
+                            <th>Food</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Amount</th>
+                            <th>User ID</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                        <tbody>
+                            @for ($i = 0; $i < count($orders); $i++)
+                                @php
+                                    $order = DB::table('food')
+                                    ->where('id', $orders[$i]->food_id)
+                                    ->get();
+                                @endphp                                        
+                            <tr>
+                                <tr>
+                                    <td>{{$order[0]->food_name}}</td>
+                                    <td>{{$order[0]->price}}</td>
+                                    <td>{{$orders[$i]->quantity}}</td>
+                                    <td>{{$order[0]->price * $orders[$i]->quantity}}</td>
+                                    <td>{{$orders[$i]->user_id}}</td>
+                                    <td>{{$orders[$i]->status}}</td>
+                                    <td>
+                                        <a href="{{ route('order.show',$orders[$i]->id )}}" class="action-icon" title="edit"><i class="mdi mdi-pencil"></i></button></a>
+                                        <a href="{{ route('order.delete',$orders[$i]->id )}}" class="action-icon" title="delete"><i class="mdi mdi-delete"></i></button></a>
+                                    </td>
+                                </tr>
+                            </tr>
+                            @endfor
+                            
+                        </tbody>
+            </div> <!-- end table-responsive-->                     
 
     <div class="rightbar-overlay"></div>
     <!-- /End-bar -->
@@ -195,5 +234,5 @@
     <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
     {!! Toastr::message() !!}
 </body>
-
+    
 </html>

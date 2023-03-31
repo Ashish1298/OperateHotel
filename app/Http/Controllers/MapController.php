@@ -43,16 +43,6 @@ class MapController extends Controller
     }
 
 
-    public function showMap($id)
-    {
-    }
-
-
-    public function updateMap(Request $request, $id)
-    {
-
-    }
-
     public function deleteMap($id)
     {
         $data = Map::find($id);

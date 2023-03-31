@@ -6,11 +6,7 @@ use Illuminate\Http\Request;
 
 class ManageUserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
         $users = User::all();

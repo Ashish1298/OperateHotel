@@ -148,7 +148,7 @@
                                         <a class="nav-link" href="{{ route('userContact.index') }}">contact</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('userContact.index') }}">Service</a>
+                                        <a class="nav-link" href="{{ route('userService.index') }}">Service</a>
                                     </li>
                                     <li class="dropdown profile-menu-head ">
                                         <a href="{{route('userProfile.index')}}" class="nav-link dropbtn" href="" style="border-bottom: none;">
@@ -181,7 +181,7 @@
     <!--  footer -->
     <footer>
         <div class="footer">
-            <div class="container">
+            <div class="container " style="margin-right: 13%" >
                 <div class="row">
                     <div class=" col-md-4">
                         <h3>Contact US</h3>
@@ -200,20 +200,6 @@
                             <li><a href="{{ route('userGallery.index') }}">Gallery</a></li>
                             <li><a href="{{ route('userOffer.index') }}">Offer</a></li>
                             <li><a href="{{ route('userContact.index') }}">Contact Us</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4">
-                        <h3>News letter</h3>
-                        <form class="bottom_form">
-                            <input class="enter" placeholder="Enter your email" type="text"
-                                name="Enter your email">
-                            <button class="sub_btn">subscribe</button>
-                        </form>
-                        <ul class="social_icon">
-                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
                 </div>

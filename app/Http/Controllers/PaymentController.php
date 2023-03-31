@@ -141,29 +141,5 @@ class PaymentController extends Controller
         $data = json_decode($request->response);
 
         dd($data);
-        // $amount = $data->amount / 100;
-        // try {
-
-        //     $bill = SellerBill::find($data->product_identity);
-        //     $user = User::find($bill->user_id);
-        //     $seller = Seller::where('user_id', $bill->user_id)->first();
-
-        //     $payment = new Payment();
-
-        //     $payment->sender = $user->id;
-        //     $payment->amount = $amount;
-        //     $payment->payment_type = "Khalti";
-        //     $payment->sellerBill_id = $data->product_identity;
-
-        //     $payment->save();
-
-        //     $seller->balance_amount = $seller->balance_amount - $amount;
-        //     $seller->update();
-
-        //     $bill->status = !$bill->status;
-        //     $bill->update();
-        // } catch (Exception $exception) {
-        //     return response()->back()->with($exception);
-        // }
     }
 }

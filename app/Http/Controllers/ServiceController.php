@@ -87,5 +87,11 @@ class ServiceController extends Controller
         $data->delete();
         toastr()->success('Service Deleted Successfully!!!');
         return redirect()->back();
+    
+    }
+    public function userService()
+    {
+        $services = serviceCategory::all();
+        return view('user.service.index',compact('services'));
     }
 }
