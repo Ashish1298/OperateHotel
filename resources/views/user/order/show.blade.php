@@ -180,7 +180,7 @@
 
     <div class="tab-content" style="margin-top: 20px; margin-right:50px; margin-left:50px;">
         <div class="tab-pane show active" id="striped-rows-preview">
-            <h1>YOUR BOOKINGS</h1>
+            <h1>YOUR ORDERS</h1>
             <div class="table-responsive">
                 <table class="table table-striped table-centered">
                     <thead>

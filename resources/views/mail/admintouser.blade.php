@@ -12,13 +12,13 @@
     <div class="main">
 
         <p>Hello,</p>
-
+        <p>{{ $mailData['subject'] }}</p>
         <p>You have received a new message from: Operate Hotel</p>
 
         <p>Message: {{ $mailData['message'] }}</p>
 
         <p>Regards,</p>
-        <p>Your Website</p>
+        <p>Operate Hotel</p>
     </div>
 </body>
 

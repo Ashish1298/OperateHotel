@@ -55,7 +55,7 @@ class BookingController extends Controller
     {
         $data = Booking::find($id);
         $data->delete();
-        toastr()->success('Service Deleted Successfully!!!');
+        toastr()->success('Booking cancled Successfully!!!');
         return redirect()->back();
     }
 }

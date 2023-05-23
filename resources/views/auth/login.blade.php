@@ -37,10 +37,6 @@
 
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
-
-
-
-
                                 <div class=" mb-3">
                                     <label for="emailaddress" class="form-label">Email address</label>
 
@@ -57,25 +53,9 @@
                                         @enderror
                                     </div>
                                 </div>
-
-                                {{-- <div class="mb-3">
-                                    <a href="pages-recoverpw.html" class="text-muted float-end"><small>Forgot your
-                                            password?</small></a>
-                                    <label for="password" class="form-label">Password</label>
-                                    <div class="input-group input-group-merge">
-                                        <input type="password" id="password" class="form-control"
-                                            placeholder="Enter your password">
-                                        <div class="input-group-text" data-password="false">
-                                            <span class="password-eye"></span>
-                                        </div>
-                                    </div>
-                                </div> --}}
-
                                 <div class=" mb-3">
 
-                                    <a href="{{ route('password.request') }}" class="text-muted float-end"><small>Forgot
-                                            your
-                                            password?</small></a>
+                                    <a href="{{ route('password.request') }}" class="text-muted float-end"><small>Forgot your password?</small></a>
                                     <label for="password" class="form-label">Password</label>
 
                                     <div class="input-group input-group-merge">
@@ -93,9 +73,6 @@
                                         @enderror
                                     </div>
                                 </div>
-
-
-
                                 <div class="mb-3 mb-3">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" name="remember" id="remember"
@@ -128,9 +105,6 @@
         <!-- end container -->
     </div>
     <!-- end page -->
-
-
-
     <!-- bundle -->
     <script src="{{ asset('admin/js/vendor.min.js') }}"></script>
     <script src="{{ asset('admin/js/app.min.js') }}"></script>

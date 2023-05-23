@@ -1,7 +1,5 @@
 @extends('user.include.new')
 @section('content')
-
-
     <div class="content" style="margin-left:0%; margin-top:0%; margin-right:15%;">
         <div class="row" >
             <div class="col">

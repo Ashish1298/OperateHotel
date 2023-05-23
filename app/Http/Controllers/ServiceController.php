@@ -5,8 +5,11 @@ use App\Models\Service;
 use App\Models\Room;
 use App\Models\serviceCategory;
 use Illuminate\Support\Facades\File;
+use App\Mail\UserToAdminMail;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Exception;
-
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -93,5 +96,23 @@ class ServiceController extends Controller
     {
         $services = serviceCategory::all();
         return view('user.service.index',compact('services'));
+
+    }
+    public function userToAdminService(Request $request)
+    {
+        $admin_email = User::where('is_admin', 1)->get('email')->first()->email;
+
+        $mailData = [
+            'name' => $request->name,
+            'message' => $request->message,
+            'address' => $request->address,
+            'phone' => $request->phone,
+            'email' => $request->email,
+        ];
+
+        Mail::to('ashishpuri1298@gmail.com')->send(new UserToAdminMail($mailData));
+
+        // dd($request->all());
+        return redirect()->back()->with('success', 'Your message has been sent.');
     }
 }

@@ -96,6 +96,8 @@ Route::post("/payment/store", [PaymentController::class, 'paymentStore'])->name(
 
 // payment store route
 Route::get("/userServices", [ServiceController::class, 'userService'])->name('userService.index');
+// Service route
+Route::post("/userServicesUse", [ServiceController::class, 'userToAdminService'])->name('userService.userToAdminService');
 
 // nearest place map
 Route::get("/nearest-places", [UserHomeController::class, 'nearestPlace'])->name('user.map.index');

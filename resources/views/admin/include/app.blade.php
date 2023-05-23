@@ -76,8 +76,10 @@
                             <i class="mdi mdi-account-circle me-1"></i>
                             <span>My Account</span>
                         </a>
+
                         <!-- item-->
-                        <a class="dropdown-item notify-item" href="{{ route('logout') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <a class="dropdown-item notify-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <i class="mdi mdi-lock-outline me-1"></i>
                             <span>Logout</span>
                         </a>
@@ -89,7 +91,13 @@
                 </li>
 
             </ul>
-            
+            <a class="button-menu-mobile disable-btn">
+                <div class="lines">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </a>
         </div>
     </div>
     <!-- end Topbar -->
@@ -110,14 +118,13 @@
                 <ul class="side-nav">
 
                     <li class="side-nav-title side-nav-item">Navigation</li>
-                    
+
                     <li class="side-nav-item">
                         <a href="{{ route('user.index') }}" class="side-nav-link">
                             <i class="dripicons-user-group"></i>
-                            <span> Manage User </span>
+                            <span> Manage Users </span>
                         </a>
                     </li>
-
                     <li class="side-nav-item">
                         <a href="{{ route('roomCategory.index') }}" class="side-nav-link">
                             <i class="uil uil-layers-alt"></i>
@@ -251,7 +258,7 @@
                 </div><!-- /.modal-dialog -->
             </div><!-- /.modal -->
             <!-- Left Sidebar End -->
-
+            
             <div class="content-page">
                 @yield('content')
             </div>

@@ -56,7 +56,7 @@
                                         <td>{{($item->longitude)}}</td>
                                         <td>{{($item->latitude)}}</td>
                                         <td>
-                                            <a href="{{ route('map.show',$item->id )}}" class="action-icon" title="edit"><i class="mdi mdi-pencil"></i></button></a>
+                                            {{-- <a href="{{ route('map.show',$item->id )}}" class="action-icon" title="edit"><i class="mdi mdi-pencil"></i></button></a> --}}
                                             <a href="{{ route('map.delete',$item->id )}}" class="action-icon" title="delete"><i class="mdi mdi-delete"></i></button></a>
                                         </td>
                                     </tr>

@@ -45,7 +45,7 @@
                                     </div>
                                     <div class="row-12">
                                         <label for="inputAddress" class="form-label ">Bio</label>
-                                        <textarea class="form-control" value="{{ Auth::user()->bio }}" id="inputAddress" name="bio" placeholder="Description..." rows="3"></textarea>
+                                        <textarea class="form-control" value="{{ Auth::user()->bio }}" id="inputAddress" name="bio" placeholder="Description..." rows="3"  required></textarea>
                                     </div>
                                     <div class="d-flex justify-content-center">
                                         <button type="submit" class="btn btn-primary px-5">Edit</button>

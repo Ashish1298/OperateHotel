@@ -55,7 +55,6 @@ class ProfileController extends Controller
             return redirect()->route('profile.index');
 
         } catch (Exception $exception) {
-            dd($exception);
             toastr()->error('Error While Editing Profile !');
             return redirect()->back()->with('error', 'This is the error' . $exception);
         }

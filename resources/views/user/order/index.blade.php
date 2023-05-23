@@ -48,7 +48,7 @@
         
     </div>
         <div class="row-md-10 " style="margin-left: 0%" >
-            <a href="{{route('userOrder.show')}}" class="book_btn"><i class='bx bxs-plus-square' style="margin-left: 15%"></i>View Booking</a>
+            <a href="{{route('userOrder.show')}}" class="book_btn"><i class='bx bxs-plus-square' style="margin-left: 15%"></i>View Order</a>
         </div>
     </div>
 </div>

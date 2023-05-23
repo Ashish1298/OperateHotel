@@ -95,10 +95,6 @@ class PaymentController extends Controller
         toastr()->success('Payment Deleted Successfully!!!');
         return redirect()->back();
     }
-
-
-
-
     // payment verification
 
     // verify payment

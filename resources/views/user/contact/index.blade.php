@@ -14,16 +14,16 @@
                         @csrf
                         <div class="row">
                             <div class="col-md-12 ">
-                                <input class="contactus" placeholder="Name" type="type" name="name">
+                                <input class="contactus" placeholder="Name" type="type" name="name" required>
                             </div>
                             <div class="col-md-12">
-                                <input class="contactus" placeholder="Email" type="email" name="email">
+                                <input class="contactus" placeholder="Email" type="email" name="email" required>
                             </div>
                             <div class="col-md-12">
-                                <input class="contactus"  placeholder="Phone Number"  pattern="98[0-9]{8}" maxlength="10" autocomplete="off" name="phone">
+                                <input class="contactus"  placeholder="Phone Number"  pattern="98[0-9]{8}" maxlength="10" autocomplete="off" name="phone" required>
                             </div>
                             <div class="col-md-12">
-                                <textarea class="textarea" placeholder="Message" type="type" name="message"></textarea>
+                                <textarea class="textarea" placeholder="Message" type="type" name="message" required></textarea>
                             </div>
                             <div class="col-md-12">
                                 <button class="send_btn" type="submit">Send</button>
