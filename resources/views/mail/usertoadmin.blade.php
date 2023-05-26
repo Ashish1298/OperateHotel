@@ -15,7 +15,7 @@
 
         <p>You have received a new message from the contact form:{{ $mailData['name'] }}</p>
         <p>Email: {{ $mailData['email'] }}</p>
-        <p>Phone: {{ $mailData['phone'] }}</p>
+        <p>Room Name: {{ $mailData['room'] }}</p>
         <p>Message: {{ $mailData['message'] }}</p>
 
         <p>Regards,</p>

@@ -42,7 +42,6 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
 
     <style>
-
         .dropbtn {
             background-color: #ffffff;
             width: 40px;
@@ -87,9 +86,10 @@
         }
 
         .footer {
-            position:fixed;bottom:0;
-            width:100%;
-            display:block;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: block;
         }
 
         @media only screen and (min-width: 600px) {
@@ -117,12 +117,13 @@
                 <div class="row">
                     <div class="col-xl-3 col logo_section">
                         <div class="" style="display: block;">
-                            <a href="{{ route('home') }}"><img src="{{ asset('admin/images/logo.png') }}" alt="Company Logo"  style="height:70px; width:75px;  margin-top:-5px " /></a>
+                            <a href="{{ route('home') }}"><img src="{{ asset('admin/images/logo.png') }}"
+                                    alt="Company Logo" style="height:70px; width:75px;  margin-top:-5px " /></a>
                         </div>
                     </div>
                     <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
                         <nav class="navigation navbar navbar-expand-md navbar-dark ">
-                            
+
                             <div class="collapse navbar-collapse" id="navbarsExample04">
                                 <ul class="navbar-nav mr-auto">
                                     <li class="nav-item">
@@ -153,14 +154,19 @@
                                         <a class="nav-link" href="{{ route('userContact.index') }}">Service</a>
                                     </li>
                                     <li class="dropdown profile-menu-head ">
-                                        <a href="{{route('userProfile.index')}}" class="nav-link dropbtn" href="" style="border-bottom: none;">
-                                            <img src="{{ asset('admin/images/user/'.Auth::user()->image) }}" alt="" style="height:45px; width:50px; left:0; margin-top:-10px " class="rounded-circle">
+                                        <a href="{{ route('userProfile.index') }}" class="nav-link dropbtn"
+                                            href="" style="border-bottom: none;">
+                                            <img src="{{ asset('admin/images/user/' . Auth::user()->image) }}"
+                                                alt=""
+                                                style="height:45px; width:50px; left:0; margin-top:-10px "
+                                                class="rounded-circle">
                                         </a>
                                         <div class="dropdown-content" style="left:0;">
-                                            <a href="{{route('userProfile.index')}}">My Profile</a>
-                                            <a href="#">Link 2</a>
-                                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">logout</a>
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            <a href="{{ route('userProfile.index') }}">My Profile</a>
+                                            <a href="{{ route('logout') }}"
+                                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">logout</a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                class="d-none">
                                                 @csrf
                                             </form>
                                         </div>

@@ -247,6 +247,7 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
 
 
 
+
     // Order route
     Route::get("/adminBooking", [AdminBookingController::class, 'index'])->name('adminBooking.index');
     // Order creating route
@@ -289,12 +290,12 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
     Route::post("/updateOffer/{id}", [OfferController::class, 'updateOffer'])->name('offer.edit');
 
 
-    
+
     // admin manage user  route
     Route::get("/manageUser", [ManageUserController::class, 'index'])->name('user.index');
 
 
-    Route::get("/deleteUser", [ManageUserController::class, 'delete'])->name('delete.index');
+    Route::get("/deleteUser/{id}", [ManageUserController::class, 'delete'])->name('delete.index');
 
     // admin mail route
     Route::post("/mail/send", [AdminMailController::class, 'mailSend'])->name('mail.send');
@@ -307,6 +308,6 @@ Route::group(['middleware' => ['auth', 'staff']], function () {
 
     // staff dashboard
     Route::get("/staff/dashboard", [StaffController::class, 'index'])->name('staff.dashboard');
-    
- 
+
+    Route::get('/change/status/{id}', [OrderController::class, 'changeStatus'])->name('order.change.status');
 });

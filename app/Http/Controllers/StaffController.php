@@ -11,6 +11,7 @@ class StaffController extends Controller
     public function index()
     {
         $orders = Order::all();
+        
         return view('staff.index',compact('orders'));
     }
 }

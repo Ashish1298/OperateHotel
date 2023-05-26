@@ -69,16 +69,11 @@
                     </div>
                 </li>
 
-                
+
 
                 <li class="dropdown notification-list">
                     <a class="nav-link dropdown-toggle nav-user arrow-none me-0" data-bs-toggle="dropdown"
                         id="topbar-userdrop" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                        <span class="account-user-avatar">
-                            {{-- <img src="{{ asset('admin/images/user/'.Auth::user()->image) }}" alt="Image Profile" style="height: 100px; width:100px" class="rounded-circle img-thumbnail object-fit:cover"> --}}
-                            <img src="{{ asset('admin/images/user/' . Auth::user()->image) }}" alt="Admin-image"
-                                class="rounded-circle">
-                        </span>
                         <span class="account-user-name mt-2">{{ Auth::user()->name }}</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated topbar-dropdown-menu profile-dropdown"
@@ -97,7 +92,7 @@
                 </li>
 
             </ul>
-            
+
         </div>
     </div>
     <!-- end Topbar -->
@@ -174,65 +169,79 @@
     </div> --}}
     <!-- END Container -->
     <div class="tab-content" style="margin-top: 2%;">
-        <div class="tab-pane show active" id="striped-rows-preview" >
+        <div class="tab-pane show active" id="striped-rows-preview">
             <div class="table-responsive"style="margin-right: 5%; margin-right:5%;">
-                <table class="table table-striped table-centered" >
+                <table class="table table-striped table-centered">
                     <thead>
                         <tr>
                             <th>Food</th>
                             <th>Price</th>
                             <th>Quantity</th>
-                            <th>Amount</th>
-                            <th>User ID</th>
+                            <th>User Name</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
-                        <tbody>
-                            @for ($i = 0; $i < count($orders); $i++)
-                                @php
-                                    $order = DB::table('food')
+                    <tbody>
+                        {{-- @for ($i = 0; $i < count($orders); $i++)
+                            @php
+                                $order = DB::table('food')
                                     ->where('id', $orders[$i]->food_id)
                                     ->get();
-                                @endphp                                        
+                            @endphp
                             <tr>
-                                <tr>
-                                    <td>{{$order[0]->food_name}}</td>
-                                    <td>{{$order[0]->price}}</td>
-                                    <td>{{$orders[$i]->quantity}}</td>
-                                    <td>{{$order[0]->price * $orders[$i]->quantity}}</td>
-                                    <td>{{$orders[$i]->user_id}}</td>
-                                    <td>{{$orders[$i]->status}}</td>
-                                    <td>
-                                        <a href="{{ route('order.show',$orders[$i]->id )}}" class="action-icon" title="edit"><i class="mdi mdi-pencil"></i></button></a>
-                                        <a href="{{ route('order.delete',$orders[$i]->id )}}" class="action-icon" title="delete"><i class="mdi mdi-delete"></i></button></a>
-                                    </td>
-                                </tr>
+                                <td>{{ $order[0]->food_name }}</td>
+                                <td>{{ $order[0]->price }}</td>
+                                <td>{{ $orders[$i]->quantity }}</td>
+                                <td>{{ $order[0]->price * $orders[$i]->quantity }}</td>
+                                <td>{{ $orders[$i]->user_id }}</td>
+                                <td>{{ $orders[$i]->status }}</td>
+                                <td>
+                                    <a href="{{ route('order.change.status', $orders[$i]->id) }}" class="action-icon"
+                                        title="edit"><i class="mdi mdi-pencil"></i></button></a>
+                                    <a href="{{ route('order.change.status', $orders[$i]->id) }}">change status</a>
+                                    <a href="{{ route('order.delete', $orders[$i]->id) }}" class="action-icon"
+                                        title="delete"><i class="mdi mdi-delete"></i></button></a>
+                                </td>
                             </tr>
-                            @endfor
-                            
-                        </tbody>
-            </div> <!-- end table-responsive-->                     
+                        @endfor --}}
 
-    <div class="rightbar-overlay"></div>
-    <!-- /End-bar -->
+                        @foreach ($orders as $order)
+                            <tr>
+                                <td>{{ $order->food['food_name'] }}</td>
+                                <td>{{ $order->food['price'] }}</td>
+                                <td>{{ $order->quantity }}</td>
+                                <td>{{ $order->user['name'] }}</td>
+                                <td>{{ $order->status }}</td>
+                                <td>
+                                    <a href="{{ route('order.change.status', $order->id) }}"><i
+                                            class="mdi mdi-pencil"></i></a>
+                                </td>
+                            </tr>
+                        @endforeach
+
+                    </tbody>
+            </div> <!-- end table-responsive-->
+
+            <div class="rightbar-overlay"></div>
+            <!-- /End-bar -->
 
 
-    <!-- bundle -->
-    <script src="{{ asset('admin/js/vendor.min.js') }}"></script>
-    <script src="{{ asset('admin/js/app.min.js') }}"></script>
+            <!-- bundle -->
+            <script src="{{ asset('admin/js/vendor.min.js') }}"></script>
+            <script src="{{ asset('admin/js/app.min.js') }}"></script>
 
-    <!-- third party js -->
-    <script src="{{ asset('admin/js/vendor/apexcharts.min.js') }}"></script>
-    <script src="{{ asset('admin/js/vendor/jquery-jvectormap-1.2.2.min.js') }}"></script>
-    <script src="{{ asset('admin/js/vendor/jquery-jvectormap-world-mill-en.js') }}"></script>
-    <!-- third party js ends -->
+            <!-- third party js -->
+            <script src="{{ asset('admin/js/vendor/apexcharts.min.js') }}"></script>
+            <script src="{{ asset('admin/js/vendor/jquery-jvectormap-1.2.2.min.js') }}"></script>
+            <script src="{{ asset('admin/js/vendor/jquery-jvectormap-world-mill-en.js') }}"></script>
+            <!-- third party js ends -->
 
-    <!-- demo app -->
-    <script src="{{ asset('admin/js/pages/demo.dashboard.js') }}"></script>
-    <!-- end demo js-->
-    <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-    <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
-    {!! Toastr::message() !!}
+            <!-- demo app -->
+            <script src="{{ asset('admin/js/pages/demo.dashboard.js') }}"></script>
+            <!-- end demo js-->
+            <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+            <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+            {!! Toastr::message() !!}
 </body>
-    
+
 </html>

@@ -55,7 +55,7 @@
                     </div>
                 </li>
 
-                
+
 
                 <li class="dropdown notification-list">
                     <a class="nav-link dropdown-toggle nav-user arrow-none me-0" data-bs-toggle="dropdown"
@@ -212,11 +212,11 @@
                         <a class="side-nav-link" data-bs-toggle="modal" data-bs-target="#standard-modal">
                             <i class="uil uil-fast-mail"></i>
                             <span>Mail</span>
-                    </a>
+                        </a>
                     </li>
 
                 </ul>
-                
+
 
                 <!-- end Help Box -->
                 <!-- End Sidebar -->
@@ -270,7 +270,6 @@
                         </div>
                     </div>
                     <!-- end page title -->
-
                     <div class="row">
                         <div class="col-12">
                             <div class="card widget-inline">
@@ -281,8 +280,8 @@
                                                 <div class="card-body text-center">
                                                     <i class="dripicons-briefcase text-muted"
                                                         style="font-size: 24px;"></i>
-                                                    <h3><span>29</span></h3>
-                                                    <p class="text-muted font-15 mb-0">Total Projects</p>
+                                                    <h3><span>{{ $total_no_of_customer }}</span></h3>
+                                                    <p class="text-muted font-15 mb-0">Customer</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -292,8 +291,8 @@
                                                 <div class="card-body text-center">
                                                     <i class="dripicons-checklist text-muted"
                                                         style="font-size: 24px;"></i>
-                                                    <h3><span>715</span></h3>
-                                                    <p class="text-muted font-15 mb-0">Total Tasks</p>
+                                                    <h3><span>{{ $total_no_of_order }}</span></h3>
+                                                    <p class="text-muted font-15 mb-0">Orders</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -303,8 +302,8 @@
                                                 <div class="card-body text-center">
                                                     <i class="dripicons-user-group text-muted"
                                                         style="font-size: 24px;"></i>
-                                                    <h3><span>31</span></h3>
-                                                    <p class="text-muted font-15 mb-0">Members</p>
+                                                    <h3><span>{{ $total_no_of_room }}</span></h3>
+                                                    <p class="text-muted font-15 mb-0">Rooms</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -314,9 +313,9 @@
                                                 <div class="card-body text-center">
                                                     <i class="dripicons-graph-line text-muted"
                                                         style="font-size: 24px;"></i>
-                                                    <h3><span>93%</span> <i class="mdi mdi-arrow-up text-success"></i>
+                                                    <h3><span>{{ $total_no_of_booking }}</span>
                                                     </h3>
-                                                    <p class="text-muted font-15 mb-0">Productivity</p>
+                                                    <p class="text-muted font-15 mb-0">Bookings</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -330,7 +329,7 @@
 
 
                     <div class="row">
-                        <div class="col-lg-4">
+                        <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
                                     <div class="dropdown float-end">
@@ -349,168 +348,36 @@
                                             <a href="javascript:void(0);" class="dropdown-item">Settings</a>
                                         </div>
                                     </div>
-                                    <h4 class="header-title mb-4">Project Status</h4>
-
-                                    <div class="my-4 chartjs-chart" style="height: 202px;">
-                                        <canvas id="project-status-chart" data-colors="#10c469,#536de6,#ff5b5b"></canvas>
-                                    </div>
-
-                                    <div class="row text-center mt-2 py-2">
-                                        <div class="col-4">
-                                            <i class="mdi mdi-trending-up text-success mt-3 h3"></i>
-                                            <h3 class="fw-normal">
-                                                <span>64%</span>
-                                            </h3>
-                                            <p class="text-muted mb-0">Completed</p>
-                                        </div>
-                                        <div class="col-4">
-                                            <i class="mdi mdi-trending-down text-primary mt-3 h3"></i>
-                                            <h3 class="fw-normal">
-                                                <span>26%</span>
-                                            </h3>
-                                            <p class="text-muted mb-0"> In-progress</p>
-                                        </div>
-                                        <div class="col-4">
-                                            <i class="mdi mdi-trending-down text-danger mt-3 h3"></i>
-                                            <h3 class="fw-normal">
-                                                <span>10%</span>
-                                            </h3>
-                                            <p class="text-muted mb-0"> Behind</p>
-                                        </div>
-                                    </div>
-                                    <!-- end row-->
-
-                                </div> <!-- end card body-->
-                            </div> <!-- end card -->
-                        </div><!-- end col-->
-
-                        <div class="col-lg-8">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="dropdown float-end">
-                                        <a href="#" class="dropdown-toggle arrow-none card-drop"
-                                            data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="mdi mdi-dots-vertical"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-end">
-                                            <!-- item-->
-                                            <a href="javascript:void(0);" class="dropdown-item">Weekly Report</a>
-                                            <!-- item-->
-                                            <a href="javascript:void(0);" class="dropdown-item">Monthly Report</a>
-                                            <!-- item-->
-                                            <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                            <!-- item-->
-                                            <a href="javascript:void(0);" class="dropdown-item">Settings</a>
-                                        </div>
-                                    </div>
-                                    <h4 class="header-title mb-3">Tasks</h4>
-
-                                    <p><b>107</b> Tasks completed out of 195</p>
+                                    <h4 class="header-title mb-3">Rooms</h4>
 
                                     <div class="table-responsive">
                                         <table class="table table-centered table-nowrap table-hover mb-0">
+                                            <thead>
+                                                <tr>
+                                                    {{-- 'category_name', 'image', 'description' --}}
+
+                                                    <th>Room ID</th>
+                                                    <th>Room Name</th>
+                                                    <th class="w-25">Image</th>
+                                                    <th>Description</th>
+                                                    <th>Category</th>
+                                                    <th>Price</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <h5 class="font-14 my-1"><a href="javascript:void(0);"
-                                                                class="text-body">Coffee detail page - Main Page</a>
-                                                        </h5>
-                                                        <span class="text-muted font-13">Due in 3 days</span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-muted font-13">Status</span> <br />
-                                                        <span class="badge badge-warning-lighten">In-progress</span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-muted font-13">Assigned to</span>
-                                                        <h5 class="font-14 mt-1 fw-normal">Logan R. Cohn</h5>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-muted font-13">Total time spend</span>
-                                                        <h5 class="font-14 mt-1 fw-normal">3h 20min</h5>
-                                                    </td>
-                                                    <td class="table-action" style="width: 90px;">
-                                                        <a href="javascript: void(0);" class="action-icon"> <i
-                                                                class="mdi mdi-pencil"></i></a>
-                                                        <a href="javascript: void(0);" class="action-icon"> <i
-                                                                class="mdi mdi-delete"></i></a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <h5 class="font-14 my-1"><a href="javascript:void(0);"
-                                                                class="text-body">Drinking bottle graphics</a></h5>
-                                                        <span class="text-muted font-13">Due in 27 days</span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-muted font-13">Status</span> <br />
-                                                        <span class="badge badge-danger-lighten">Outdated</span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-muted font-13">Assigned to</span>
-                                                        <h5 class="font-14 mt-1 fw-normal">Jerry F. Powell</h5>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-muted font-13">Total time spend</span>
-                                                        <h5 class="font-14 mt-1 fw-normal">12h 21min</h5>
-                                                    </td>
-                                                    <td class="table-action" style="width: 90px;">
-                                                        <a href="javascript: void(0);" class="action-icon"> <i
-                                                                class="mdi mdi-pencil"></i></a>
-                                                        <a href="javascript: void(0);" class="action-icon"> <i
-                                                                class="mdi mdi-delete"></i></a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <h5 class="font-14 my-1"><a href="javascript:void(0);"
-                                                                class="text-body">App design and development</a></h5>
-                                                        <span class="text-muted font-13">Due in 7 days</span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-muted font-13">Status</span> <br />
-                                                        <span class="badge badge-success-lighten">Completed</span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-muted font-13">Assigned to</span>
-                                                        <h5 class="font-14 mt-1 fw-normal">Scot M. Smith</h5>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-muted font-13">Total time spend</span>
-                                                        <h5 class="font-14 mt-1 fw-normal">78h 05min</h5>
-                                                    </td>
-                                                    <td class="table-action" style="width: 90px;">
-                                                        <a href="javascript: void(0);" class="action-icon"> <i
-                                                                class="mdi mdi-pencil"></i></a>
-                                                        <a href="javascript: void(0);" class="action-icon"> <i
-                                                                class="mdi mdi-delete"></i></a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <h5 class="font-14 my-1"><a href="javascript:void(0);"
-                                                                class="text-body">Poster illustation design</a></h5>
-                                                        <span class="text-muted font-13">Due in 5 days</span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-muted font-13">Status</span> <br />
-                                                        <span class="badge badge-warning-lighten">In-progress</span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-muted font-13">Assigned to</span>
-                                                        <h5 class="font-14 mt-1 fw-normal">John P. Ritter</h5>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-muted font-13">Total time spend</span>
-                                                        <h5 class="font-14 mt-1 fw-normal">26h 58min</h5>
-                                                    </td>
-                                                    <td class="table-action" style="width: 90px;">
-                                                        <a href="javascript: void(0);" class="action-icon"> <i
-                                                                class="mdi mdi-pencil"></i></a>
-                                                        <a href="javascript: void(0);" class="action-icon"> <i
-                                                                class="mdi mdi-delete"></i></a>
-                                                    </td>
-                                                </tr>
+                                                @foreach ($all_rooms as $item)
+                                                    <tr>
+                                                        <td>{{ $item->id }}</td>
+                                                        <td>{{ Str::limit($item->room_name, 70) }}</td>
+                                                        <td><img src="{{ asset('admin/images/room/' . $item->image) }}"
+                                                                alt="" class="w-25"></td>
+                                                        <td>{{ Str::limit($item->description) }}</td>
+                                                        <td>{{ Str::limit($item->category) }}</td>
+                                                        <td>{{ Str::limit($item->price) }}</td>
+                                                        <td>{{ Str::limit($item->status) }}</td>
+                                                    </tr>
+                                                @endforeach
 
                                             </tbody>
                                         </table>
@@ -520,355 +387,84 @@
                             </div> <!-- end card -->
                         </div><!-- end col-->
                     </div>
-                    <!-- end row-->
+                </div>
 
 
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="dropdown float-end">
-                                        <a href="#" class="dropdown-toggle arrow-none card-drop"
-                                            data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="mdi mdi-dots-vertical"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-end">
-                                            <!-- item-->
-                                            <a href="javascript:void(0);" class="dropdown-item">Weekly Report</a>
-                                            <!-- item-->
-                                            <a href="javascript:void(0);" class="dropdown-item">Monthly Report</a>
-                                            <!-- item-->
-                                            <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                            <!-- item-->
-                                            <a href="javascript:void(0);" class="dropdown-item">Settings</a>
-                                        </div>
-                                    </div>
-                                    <h4 class="header-title mb-4">Tasks Overview</h4>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="dropdown float-end">
+                                <a href="#" class="dropdown-toggle arrow-none card-drop"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="mdi mdi-dots-vertical"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Weekly Report</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Monthly Report</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item">Settings</a>
+                                </div>
+                            </div>
+                            <h4 class="header-title mb-3">Bookings</h4>
+                            <div class="table-responsive">
+                                <table class="table table-centered table-nowrap table-hover mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Booking ID</th>
+                                            <th>Room ID</th>
+                                            <th>User Name</th>
+                                            <th>Check In Date</th>
+                                            <th>Check Out Date</th>
+                                            <th>Phone No</th>
+                                        </tr>
+                                    <tbody>
+                                        @foreach ($all_bookings as $booking)
+                                            <tr>
+                                                <td>{{ Str::limit($booking->id) }}</td>
+                                                <td>{{ Str::limit($booking->room_id) }}</td>
+                                                <td>{{ $booking->name }}</td>
+                                                <td>{{ Str::limit($booking->checkIn) }}</td>
+                                                <td>{{ Str::limit($booking->checkOut) }}</td>
+                                                <td>{{ Str::limit($booking->phone) }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div> <!-- end table-responsive-->
 
-                                    <div dir="ltr">
-                                        <div class="mt-3 chartjs-chart" style="height: 320px;">
-                                            <canvas id="task-area-chart" data-bgColor="#536de6"
-                                                data-borderColor="#536de6"></canvas>
-                                        </div>
-                                    </div>
-
-                                </div> <!-- end card body-->
-                            </div> <!-- end card -->
-                        </div><!-- end col-->
-                    </div>
-                    <!-- end row-->
-
-
-                    <div class="row">
-                        <div class="col-xl-5">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="dropdown float-end">
-                                        <a href="#" class="dropdown-toggle arrow-none card-drop"
-                                            data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="mdi mdi-dots-vertical"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-end">
-                                            <!-- item-->
-                                            <a href="javascript:void(0);" class="dropdown-item">Weekly Report</a>
-                                            <!-- item-->
-                                            <a href="javascript:void(0);" class="dropdown-item">Monthly Report</a>
-                                            <!-- item-->
-                                            <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                            <!-- item-->
-                                            <a href="javascript:void(0);" class="dropdown-item">Settings</a>
-                                        </div>
-                                    </div>
-                                    <h4 class="header-title mb-3">Recent Activities</h4>
-
-                                    <div class="table-responsive">
-                                        <table class="table table-centered table-nowrap table-hover mb-0">
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <div class="d-flex align-items-start">
-                                                            <img class="me-2 rounded-circle"
-                                                                src="assets/images/users/avatar-2.jpg" width="40"
-                                                                alt="Generic placeholder image">
-                                                            <div>
-                                                                <h5 class="mt-0 mb-1">Soren Drouin<small
-                                                                        class="fw-normal ms-3">18 Jan 2019 11:28
-                                                                        pm</small></h5>
-                                                                <span class="font-13">Completed "Design new
-                                                                    idea"...</span>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-muted font-13">Project</span> <br />
-                                                        <p class="mb-0">Hyper Mockup</p>
-                                                    </td>
-                                                    <td class="table-action" style="width: 50px;">
-                                                        <div class="dropdown">
-                                                            <a href="#"
-                                                                class="dropdown-toggle arrow-none card-drop"
-                                                                data-bs-toggle="dropdown" aria-expanded="false">
-                                                                <i class="mdi mdi-dots-horizontal"></i>
-                                                            </a>
-                                                            <div class="dropdown-menu dropdown-menu-end">
-                                                                <!-- item-->
-                                                                <a href="javascript:void(0);"
-                                                                    class="dropdown-item">Settings</a>
-                                                                <!-- item-->
-                                                                <a href="javascript:void(0);"
-                                                                    class="dropdown-item">Action</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>
-                                                        <div class="d-flex align-items-start">
-                                                            <img class="me-2 rounded-circle"
-                                                                src="assets/images/users/avatar-6.jpg" width="40"
-                                                                alt="Generic placeholder image">
-                                                            <div>
-                                                                <h5 class="mt-0 mb-1">Anne Simard<small
-                                                                        class="fw-normal ms-3">18 Jan 2019 11:09
-                                                                        pm</small></h5>
-                                                                <span class="font-13">Assigned task "Poster illustation
-                                                                    design"...</span>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-muted font-13">Project</span> <br />
-                                                        <p class="mb-0">Hyper Mockup</p>
-                                                    </td>
-                                                    <td class="table-action" style="width: 50px;">
-                                                        <div class="dropdown">
-                                                            <a href="#"
-                                                                class="dropdown-toggle arrow-none card-drop"
-                                                                data-bs-toggle="dropdown" aria-expanded="false">
-                                                                <i class="mdi mdi-dots-horizontal"></i>
-                                                            </a>
-                                                            <div class="dropdown-menu dropdown-menu-end">
-                                                                <!-- item-->
-                                                                <a href="javascript:void(0);"
-                                                                    class="dropdown-item">Settings</a>
-                                                                <!-- item-->
-                                                                <a href="javascript:void(0);"
-                                                                    class="dropdown-item">Action</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>
-                                                        <div class="d-flex align-items-start">
-                                                            <img class="me-2 rounded-circle"
-                                                                src="assets/images/users/avatar-3.jpg" width="40"
-                                                                alt="Generic placeholder image">
-                                                            <div>
-                                                                <h5 class="mt-0 mb-1">Nicolas Chartier<small
-                                                                        class="fw-normal ms-3">15 Jan 2019 09:29
-                                                                        pm</small></h5>
-                                                                <span class="font-13">Completed "Drinking bottle
-                                                                    graphics"...</span>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-muted font-13">Project</span> <br />
-                                                        <p class="mb-0">Web UI Design</p>
-                                                    </td>
-                                                    <td class="table-action" style="width: 50px;">
-                                                        <div class="dropdown">
-                                                            <a href="#"
-                                                                class="dropdown-toggle arrow-none card-drop"
-                                                                data-bs-toggle="dropdown" aria-expanded="false">
-                                                                <i class="mdi mdi-dots-horizontal"></i>
-                                                            </a>
-                                                            <div class="dropdown-menu dropdown-menu-end">
-                                                                <!-- item-->
-                                                                <a href="javascript:void(0);"
-                                                                    class="dropdown-item">Settings</a>
-                                                                <!-- item-->
-                                                                <a href="javascript:void(0);"
-                                                                    class="dropdown-item">Action</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>
-                                                        <div class="d-flex align-items-start">
-                                                            <img class="me-2 rounded-circle"
-                                                                src="assets/images/users/avatar-4.jpg" width="40"
-                                                                alt="Generic placeholder image">
-                                                            <div>
-                                                                <h5 class="mt-0 mb-1">Gano Cloutier<small
-                                                                        class="fw-normal ms-3">10 Jan 2019 08:36
-                                                                        pm</small></h5>
-                                                                <span class="font-13">Completed "Design new
-                                                                    idea"...</span>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-muted font-13">Project</span> <br />
-                                                        <p class="mb-0">UBold Admin</p>
-                                                    </td>
-                                                    <td class="table-action" style="width: 50px;">
-                                                        <div class="dropdown">
-                                                            <a href="#"
-                                                                class="dropdown-toggle arrow-none card-drop"
-                                                                data-bs-toggle="dropdown" aria-expanded="false">
-                                                                <i class="mdi mdi-dots-horizontal"></i>
-                                                            </a>
-                                                            <div class="dropdown-menu dropdown-menu-end">
-                                                                <!-- item-->
-                                                                <a href="javascript:void(0);"
-                                                                    class="dropdown-item">Settings</a>
-                                                                <!-- item-->
-                                                                <a href="javascript:void(0);"
-                                                                    class="dropdown-item">Action</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>
-                                                        <div class="d-flex align-items-start">
-                                                            <img class="me-2 rounded-circle"
-                                                                src="assets/images/users/avatar-5.jpg" width="40"
-                                                                alt="Generic placeholder image">
-                                                            <div>
-                                                                <h5 class="mt-0 mb-1">Francis Achin<small
-                                                                        class="fw-normal ms-3">08 Jan 2019 12:28
-                                                                        pm</small></h5>
-                                                                <span class="font-13">Assigned task "Hyper app
-                                                                    design"...</span>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-muted font-13">Project</span> <br />
-                                                        <p class="mb-0">Website Mockup</p>
-                                                    </td>
-                                                    <td class="table-action" style="width: 50px;">
-                                                        <div class="dropdown">
-                                                            <a href="#"
-                                                                class="dropdown-toggle arrow-none card-drop"
-                                                                data-bs-toggle="dropdown" aria-expanded="false">
-                                                                <i class="mdi mdi-dots-horizontal"></i>
-                                                            </a>
-                                                            <div class="dropdown-menu dropdown-menu-end">
-                                                                <!-- item-->
-                                                                <a href="javascript:void(0);"
-                                                                    class="dropdown-item">Settings</a>
-                                                                <!-- item-->
-                                                                <a href="javascript:void(0);"
-                                                                    class="dropdown-item">Action</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-                                            </tbody>
-                                        </table>
-                                    </div> <!-- end table-responsive-->
-
-                                </div> <!-- end card body-->
-                            </div> <!-- end card -->
-                        </div><!-- end col-->
-
-                        <div class="col-xl-7">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="dropdown float-end">
-                                        <a href="#" class="dropdown-toggle arrow-none card-drop"
-                                            data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="mdi mdi-dots-vertical"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-end">
-                                            <!-- item-->
-                                            <a href="javascript:void(0);" class="dropdown-item">Weekly Report</a>
-                                            <!-- item-->
-                                            <a href="javascript:void(0);" class="dropdown-item">Monthly Report</a>
-                                            <!-- item-->
-                                            <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                            <!-- item-->
-                                            <a href="javascript:void(0);" class="dropdown-item">Settings</a>
-                                        </div>
-                                    </div>
-                                    <h4 class="header-title mb-3">Your Calendar</h4>
-
-                                    <div class="row">
-                                        <div class="col-md-7">
-                                            <div data-provide="datepicker-inline" data-date-today-highlight="true"
-                                                class="calendar-widget"></div>
-                                        </div> <!-- end col-->
-                                        <div class="col-md-5">
-                                            <ul class="list-unstyled">
-                                                <li class="mb-4">
-                                                    <p class="text-muted mb-1 font-13">
-                                                        <i class="mdi mdi-calendar"></i> 7:30 AM - 10:00 AM
-                                                    </p>
-                                                    <h5>Meeting with BD Team</h5>
-                                                </li>
-                                                <li class="mb-4">
-                                                    <p class="text-muted mb-1 font-13">
-                                                        <i class="mdi mdi-calendar"></i> 10:30 AM - 11:45 AM
-                                                    </p>
-                                                    <h5>Design Review - Hyper Admin</h5>
-                                                </li>
-                                                <li class="mb-4">
-                                                    <p class="text-muted mb-1 font-13">
-                                                        <i class="mdi mdi-calendar"></i> 12:15 PM - 02:00 PM
-                                                    </p>
-                                                    <h5>Setup Github Repository</h5>
-                                                </li>
-                                                <li>
-                                                    <p class="text-muted mb-1 font-13">
-                                                        <i class="mdi mdi-calendar"></i> 5:30 PM - 07:00 PM
-                                                    </p>
-                                                    <h5>Meeting with Design Studio</h5>
-                                                </li>
-                                            </ul>
-                                        </div> <!-- end col -->
-                                    </div>
-                                    <!-- end row -->
-
-                                </div> <!-- end card body-->
-                            </div> <!-- end card -->
-                        </div><!-- end col-->
-
-                    </div>
-                    <!-- end row-->
-
-                </div> <!-- End Content -->
-            <div class="content-page">
-                @yield('content')
+                        </div> <!-- end card body-->
+                    </div> <!-- end card -->
+                </div><!-- end col-->
             </div>
-            <!-- content-page -->
+            <!-- end row-->
+        </div> <!-- End Content -->
+        <div class="content-page">
+            @yield('content')
+        </div>
+        <!-- content-page -->
 
-        </div> <!-- end wrapper-->
+    </div> <!-- end wrapper-->
     </div>
 
     <!-- END Container -->
 
     <div class="rightbar-overlay"></div>
     <!-- /End-bar -->
-    
+
+
 
     <!-- bundle -->
     <script src="{{ asset('admin/js/vendor.min.js') }}"></script>
     <script src="{{ asset('admin/js/app.min.js') }}"></script>
 
+
     <!-- third party js -->
-    <script src="{{ asset('admin/js/vendor/apexcharts.min.js') }}"></script>
     <script src="{{ asset('admin/js/pages/demo.dashboard.js') }}"></script>
-    <script src="{{ asset('admin/js/vendor/Chart.bundle.min.js') }}"></script>
+    {{-- <script src="{{ asset('admin/js/vendor/Chart.bundle.min.js') }}"></script> --}}
 
     <script src="{{ asset('admin/js/vendor/jquery-jvectormap-1.2.2.min.js') }}"></script>
     <script src="{{ asset('admin/js/vendor/jquery-jvectormap-world-mill-en.js') }}"></script>
@@ -876,189 +472,8 @@
     <script src="{{ asset('admin/js/vendor/jquery-jvectormap-world-mill-en.js') }}"></script>
 
     <!-- third party js ends -->
-    <script>
-        !(function(o) {
-            "use strict";
 
-            function t() {
-                (this.$body = o("body")), (this.charts = []);
-            }
-            (t.prototype.respChart = function(r, a, e, n) {
-                (Chart.defaults.global.defaultFontColor = "#8391a2"),
-                (Chart.defaults.scale.gridLines.color = "#8391a2");
-                var i = r.get(0).getContext("2d"),
-                    s = o(r).parent();
-                return (function() {
-                    var t;
-                    switch ((r.attr("width", o(s).width()), a)) {
-                        case "Line":
-                            t = new Chart(i, {
-                                type: "line",
-                                data: e,
-                                options: n
-                            });
-                            break;
-                        case "Bar":
-                            t = new Chart(i, {
-                                type: "bar",
-                                data: e,
-                                options: n
-                            });
-                            break;
-                        case "Doughnut":
-                            t = new Chart(i, {
-                                type: "doughnut",
-                                data: e,
-                                options: n
-                            });
-                    }
-                    return t;
-                })();
-            }),
-            (t.prototype.initCharts = function() {
-                var t,
-                    r,
-                    a,
-                    e = [];
-                return (
-                    0 < o("#task-area-chart").length &&
-                    ((t = {
-                            labels: [
-                                "Sprint 1",
-                                "Sprint 2",
-                                "Sprint 3",
-                                "Sprint 4",
-                                "Sprint 5",
-                                "Sprint 6",
-                                "Sprint 7",
-                                "Sprint 8",
-                                "Sprint 9",
-                                "Sprint 10",
-                                "Sprint 11",
-                                "Sprint 12",
-                                "Sprint 13",
-                                "Sprint 14",
-                                "Sprint 15",
-                                "Sprint 16",
-                                "Sprint 17",
-                                "Sprint 18",
-                                "Sprint 19",
-                                "Sprint 20",
-                                "Sprint 21",
-                                "Sprint 22",
-                                "Sprint 23",
-                                "Sprint 24",
-                            ],
-                            datasets: [{
-                                label: "This year",
-                                backgroundColor: o("#task-area-chart").data("bgcolor") ||
-                                    "#727cf5",
-                                borderColor: o("#task-area-chart").data("bordercolor") ||
-                                    "#727cf5",
-                                data: [
-                                    16, 44, 32, 48, 72, 60, 84, 64, 78, 50, 68,
-                                    34, 26, 44, 32, 48, 72, 60, 74, 52, 62, 50,
-                                    32, 22,
-                                ],
-                            }, ],
-                        }),
-                        e.push(
-                            this.respChart(o("#task-area-chart"), "Bar", t, {
-                                maintainAspectRatio: !1,
-                                legend: {
-                                    display: !1
-                                },
-                                tooltips: {
-                                    intersect: !1
-                                },
-                                hover: {
-                                    intersect: !0
-                                },
-                                plugins: {
-                                    filler: {
-                                        propagate: !1
-                                    }
-                                },
-                                scales: {
-                                    xAxes: [{
-                                        barPercentage: 0.7,
-                                        categoryPercentage: 0.5,
-                                        reverse: !0,
-                                        gridLines: {
-                                            color: "rgba(0,0,0,0.05)",
-                                        },
-                                    }, ],
-                                    yAxes: [{
-                                        ticks: {
-                                            stepSize: 10,
-                                            display: !1
-                                        },
-                                        min: 10,
-                                        max: 100,
-                                        display: !0,
-                                        borderDash: [5, 5],
-                                        gridLines: {
-                                            color: "rgba(0,0,0,0)",
-                                            fontColor: "#fff",
-                                        },
-                                    }, ],
-                                },
-                            })
-                        )),
-                    0 < o("#project-status-chart").length &&
-                    ((a = {
-                            labels: ["Completed", "In-progress", "Behind"],
-                            datasets: [{
-                                data: [64, 26, 10],
-                                backgroundColor: (r = o(
-                                        "#project-status-chart"
-                                    ).data("colors")) ?
-                                    r.split(",") :
-                                    ["#0acf97", "#727cf5", "#fa5c7c"],
-                                borderColor: "transparent",
-                                borderWidth: "3",
-                            }, ],
-                        }),
-                        e.push(
-                            this.respChart(
-                                o("#project-status-chart"),
-                                "Doughnut",
-                                a, {
-                                    maintainAspectRatio: !1,
-                                    cutoutPercentage: 80,
-                                    legend: {
-                                        display: !1
-                                    },
-                                }
-                            )
-                        )),
-                    e
-                );
-            }),
-            (t.prototype.init = function() {
-                var r = this;
-                (Chart.defaults.global.defaultFontFamily =
-                    '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif'
-                    ),
-                (r.charts = this.initCharts()),
-                o(window).on("resize", function(t) {
-                    o.each(r.charts, function(t, r) {
-                            try {
-                                r.destroy();
-                            } catch (t) {}
-                        }),
-                        (r.charts = r.initCharts());
-                });
-            }),
-            (o.ChartJs = new t()),
-            (o.ChartJs.Constructor = t);
-        })(window.jQuery),
-        (function() {
-            "use strict";
-            window.jQuery.ChartJs.init();
-        })();
-    </script>
-    <script src="{{asset('admin/js/pages/demo.dashboard-projects.js')}}"></script>
+    <script src="{{ asset('admin/js/pages/demo.dashboard-projects.js') }}"></script>
     <!-- demo app -->
     <!-- end demo js-->
     <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
